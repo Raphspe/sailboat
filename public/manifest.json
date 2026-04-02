@@ -1,0 +1,18 @@
+{
+  "name": "SAILBOAT — Lexique de la Voile",
+  "short_name": "Sailboat",
+  "description": "Apprends le vocabulaire du voilier avec des schémas interactifs",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#030d1a",
+  "theme_color": "#030d1a",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
