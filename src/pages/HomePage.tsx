@@ -566,8 +566,11 @@ export default function HomePage() {
       </div>
 
       {/* DEBUG — remove later */}
-      <div className="fixed top-16 left-2 z-50 text-[9px] text-amber-400/70 bg-black/50 px-2 py-1 rounded lg:hidden">
-        {diagramHighlightId || 'none'}
+      <div className="fixed top-16 left-2 z-50 text-[9px] text-amber-400/70 bg-black/50 px-2 py-1 rounded lg:hidden max-w-[200px]">
+        highlight: {diagramHighlightId || 'none'}<br/>
+        entry: {selectedEntry?.term || 'none'}<br/>
+        partId: {selectedEntry?.diagramPartId || 'none'}<br/>
+        idx: {currentEntryIndex}/{playEntries.length}
       </div>
 
       {/* === MOBILE TAB BAR === */}
