@@ -1039,6 +1039,7 @@ export default function SailboatDiagram({
           partId="svg-quille"
           label="Quille"
           isActive={isActive('svg-quille')}
+          isSelected={selectedPartId === 'svg-quille'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-quille', filter, isActive('svg-quille'))}
@@ -1075,6 +1076,7 @@ export default function SailboatDiagram({
           partId="svg-safran"
           label="Safran"
           isActive={isActive('svg-safran')}
+          isSelected={selectedPartId === 'svg-safran'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-safran', filter, isActive('svg-safran'))}
@@ -1092,6 +1094,7 @@ export default function SailboatDiagram({
           partId="svg-coque"
           label="Coque"
           isActive={isActive('svg-coque')}
+          isSelected={selectedPartId === 'svg-coque'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-coque', filter, isActive('svg-coque'))}
@@ -1125,6 +1128,7 @@ export default function SailboatDiagram({
           partId="svg-proue"
           label="Proue / Étrave"
           isActive={isActive('svg-proue')}
+          isSelected={selectedPartId === 'svg-proue'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-proue', filter, isActive('svg-proue'))}
@@ -1155,6 +1159,7 @@ export default function SailboatDiagram({
           partId="svg-poupe"
           label="Poupe"
           isActive={isActive('svg-poupe')}
+          isSelected={selectedPartId === 'svg-poupe'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-poupe', filter, isActive('svg-poupe'))}
@@ -1185,6 +1190,7 @@ export default function SailboatDiagram({
           partId="svg-cockpit"
           label="Cockpit"
           isActive={isActive('svg-cockpit')}
+          isSelected={selectedPartId === 'svg-cockpit'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-cockpit', filter, isActive('svg-cockpit'))}
@@ -1210,6 +1216,7 @@ export default function SailboatDiagram({
           partId="svg-barre"
           label="Barre"
           isActive={isActive('svg-barre')}
+          isSelected={selectedPartId === 'svg-barre'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-barre', filter, isActive('svg-barre'))}
@@ -1236,6 +1243,7 @@ export default function SailboatDiagram({
           partId="svg-mat"
           label="Mât"
           isActive={isActive('svg-mat')}
+          isSelected={selectedPartId === 'svg-mat'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-mat', filter, isActive('svg-mat'))}
@@ -1263,6 +1271,7 @@ export default function SailboatDiagram({
           partId="svg-drisse-gv"
           label="Drisse de GV"
           isActive={isActive('svg-drisse-gv')}
+          isSelected={selectedPartId === 'svg-drisse-gv'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-drisse-gv', filter, isActive('svg-drisse-gv'))}
@@ -1284,6 +1293,7 @@ export default function SailboatDiagram({
           partId="svg-grand-voile"
           label="Grand-voile"
           isActive={isActive('svg-grand-voile')}
+          isSelected={selectedPartId === 'svg-grand-voile'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-grand-voile', filter, isActive('svg-grand-voile'))}
@@ -1313,6 +1323,7 @@ export default function SailboatDiagram({
           partId="svg-bome"
           label="Bôme"
           isActive={isActive('svg-bome')}
+          isSelected={selectedPartId === 'svg-bome'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-bome', filter, isActive('svg-bome'))}
@@ -1333,6 +1344,7 @@ export default function SailboatDiagram({
           partId="svg-hale-bas"
           label="Hale-bas"
           isActive={isActive('svg-hale-bas')}
+          isSelected={selectedPartId === 'svg-hale-bas'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-hale-bas', filter, isActive('svg-hale-bas'))}
@@ -1361,6 +1373,7 @@ export default function SailboatDiagram({
           partId="svg-balancine"
           label="Balancine"
           isActive={isActive('svg-balancine')}
+          isSelected={selectedPartId === 'svg-balancine'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-balancine', filter, isActive('svg-balancine'))}
@@ -1382,6 +1395,7 @@ export default function SailboatDiagram({
           partId="svg-etai"
           label="Étai"
           isActive={isActive('svg-etai')}
+          isSelected={selectedPartId === 'svg-etai'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-etai', filter, isActive('svg-etai'))}
@@ -1402,6 +1416,7 @@ export default function SailboatDiagram({
           partId="svg-genois"
           label="Génois"
           isActive={isActive('svg-genois')}
+          isSelected={selectedPartId === 'svg-genois'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-genois', filter, isActive('svg-genois'))}
@@ -1426,6 +1441,7 @@ export default function SailboatDiagram({
           partId="svg-spinnaker"
           label="Spinnaker"
           isActive={isActive('svg-spinnaker')}
+          isSelected={selectedPartId === 'svg-spinnaker'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-spinnaker', filter, isActive('svg-spinnaker'))}
@@ -1470,6 +1486,7 @@ export default function SailboatDiagram({
           partId="svg-gennaker"
           label="Gennaker"
           isActive={isActive('svg-gennaker')}
+          isSelected={selectedPartId === 'svg-gennaker'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-gennaker', filter, isActive('svg-gennaker'))}
@@ -1502,6 +1519,7 @@ export default function SailboatDiagram({
           partId="svg-haubans"
           label="Haubans"
           isActive={isActive('svg-haubans')}
+          isSelected={selectedPartId === 'svg-haubans'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-haubans', filter, isActive('svg-haubans'))}
@@ -1550,6 +1568,7 @@ export default function SailboatDiagram({
           partId="svg-ecoute-gv"
           label="Écoute de GV"
           isActive={isActive('svg-ecoute-gv')}
+          isSelected={selectedPartId === 'svg-ecoute-gv'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-ecoute-gv', filter, isActive('svg-ecoute-gv'))}
@@ -1574,6 +1593,7 @@ export default function SailboatDiagram({
           partId="svg-pataras"
           label="Pataras"
           isActive={isActive('svg-pataras')}
+          isSelected={selectedPartId === 'svg-pataras'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-pataras', filter, isActive('svg-pataras'))}
@@ -1595,6 +1615,7 @@ export default function SailboatDiagram({
           partId="svg-galhauban"
           label="Galhauban"
           isActive={isActive('svg-galhauban')}
+          isSelected={selectedPartId === 'svg-galhauban'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-galhauban', filter, isActive('svg-galhauban'))}
@@ -1624,6 +1645,7 @@ export default function SailboatDiagram({
           partId="svg-tangon"
           label="Tangon"
           isActive={isActive('svg-tangon')}
+          isSelected={selectedPartId === 'svg-tangon'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-tangon', filter, isActive('svg-tangon'))}
@@ -1645,6 +1667,7 @@ export default function SailboatDiagram({
           partId="svg-bras"
           label="Bras de spi"
           isActive={isActive('svg-bras')}
+          isSelected={selectedPartId === 'svg-bras'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-bras', filter, isActive('svg-bras'))}
@@ -1664,6 +1687,7 @@ export default function SailboatDiagram({
           partId="svg-cunningham"
           label="Cunningham"
           isActive={isActive('svg-cunningham')}
+          isSelected={selectedPartId === 'svg-cunningham'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-cunningham', filter, isActive('svg-cunningham'))}
@@ -1692,6 +1716,7 @@ export default function SailboatDiagram({
           partId="svg-bosse-de-ris"
           label="Bosse de ris"
           isActive={isActive('svg-bosse-de-ris')}
+          isSelected={selectedPartId === 'svg-bosse-de-ris'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-bosse-de-ris', filter, isActive('svg-bosse-de-ris'))}
@@ -1713,6 +1738,7 @@ export default function SailboatDiagram({
           partId="svg-ecoute"
           label="Écoute"
           isActive={isActive('svg-ecoute')}
+          isSelected={selectedPartId === 'svg-ecoute'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-ecoute', filter, isActive('svg-ecoute'))}
@@ -1732,6 +1758,7 @@ export default function SailboatDiagram({
           partId="svg-drisse"
           label="Drisse"
           isActive={isActive('svg-drisse')}
+          isSelected={selectedPartId === 'svg-drisse'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-drisse', filter, isActive('svg-drisse'))}
@@ -1753,6 +1780,7 @@ export default function SailboatDiagram({
           partId="svg-hauban"
           label="Hauban"
           isActive={isActive('svg-hauban')}
+          isSelected={selectedPartId === 'svg-hauban'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-hauban', filter, isActive('svg-hauban'))}
@@ -1773,6 +1801,7 @@ export default function SailboatDiagram({
           partId="svg-manille"
           label="Manille"
           isActive={isActive('svg-manille')}
+          isSelected={selectedPartId === 'svg-manille'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-manille', filter, isActive('svg-manille'))}
@@ -1800,6 +1829,7 @@ export default function SailboatDiagram({
           partId="svg-poulie"
           label="Poulie"
           isActive={isActive('svg-poulie')}
+          isSelected={selectedPartId === 'svg-poulie'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-poulie', filter, isActive('svg-poulie'))}
@@ -1827,6 +1857,7 @@ export default function SailboatDiagram({
           partId="svg-foc"
           label="Foc"
           isActive={isActive('svg-foc')}
+          isSelected={selectedPartId === 'svg-foc'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-foc', filter, isActive('svg-foc'))}
@@ -1845,6 +1876,7 @@ export default function SailboatDiagram({
           partId="svg-tourmentin"
           label="Tourmentin"
           isActive={isActive('svg-tourmentin')}
+          isSelected={selectedPartId === 'svg-tourmentin'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-tourmentin', filter, isActive('svg-tourmentin'))}
@@ -1863,6 +1895,7 @@ export default function SailboatDiagram({
           partId="svg-trinquette"
           label="Trinquette"
           isActive={isActive('svg-trinquette')}
+          isSelected={selectedPartId === 'svg-trinquette'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-trinquette', filter, isActive('svg-trinquette'))}
@@ -1881,6 +1914,7 @@ export default function SailboatDiagram({
           partId="svg-lazy-bag"
           label="Lazy bag"
           isActive={isActive('svg-lazy-bag')}
+          isSelected={selectedPartId === 'svg-lazy-bag'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-lazy-bag', filter, isActive('svg-lazy-bag'))}
@@ -1903,6 +1937,7 @@ export default function SailboatDiagram({
           partId="svg-guindant"
           label="Guindant"
           isActive={isActive('svg-guindant')}
+          isSelected={selectedPartId === 'svg-guindant'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-guindant', filter, isActive('svg-guindant'))}
@@ -1923,6 +1958,7 @@ export default function SailboatDiagram({
           partId="svg-chute"
           label="Chute"
           isActive={isActive('svg-chute')}
+          isSelected={selectedPartId === 'svg-chute'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-chute', filter, isActive('svg-chute'))}
@@ -1941,6 +1977,7 @@ export default function SailboatDiagram({
           partId="svg-bordure"
           label="Bordure"
           isActive={isActive('svg-bordure')}
+          isSelected={selectedPartId === 'svg-bordure'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-bordure', filter, isActive('svg-bordure'))}
@@ -1961,6 +1998,7 @@ export default function SailboatDiagram({
           partId="svg-lattes"
           label="Lattes"
           isActive={isActive('svg-lattes')}
+          isSelected={selectedPartId === 'svg-lattes'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-lattes', filter, isActive('svg-lattes'))}
@@ -1992,6 +2030,7 @@ export default function SailboatDiagram({
           partId="svg-point-amure"
           label="Point d'amure"
           isActive={isActive('svg-point-amure')}
+          isSelected={selectedPartId === 'svg-point-amure'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-point-amure', filter, isActive('svg-point-amure'))}
@@ -2010,6 +2049,7 @@ export default function SailboatDiagram({
           partId="svg-point-ecoute"
           label="Point d'écoute"
           isActive={isActive('svg-point-ecoute')}
+          isSelected={selectedPartId === 'svg-point-ecoute'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-point-ecoute', filter, isActive('svg-point-ecoute'))}
@@ -2028,6 +2068,7 @@ export default function SailboatDiagram({
           partId="svg-point-drisse"
           label="Point de drisse"
           isActive={isActive('svg-point-drisse')}
+          isSelected={selectedPartId === 'svg-point-drisse'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-point-drisse', filter, isActive('svg-point-drisse'))}
@@ -2046,6 +2087,7 @@ export default function SailboatDiagram({
           partId="svg-roof"
           label="Roof"
           isActive={isActive('svg-roof')}
+          isSelected={selectedPartId === 'svg-roof'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-roof', filter, isActive('svg-roof'))}
@@ -2068,6 +2110,7 @@ export default function SailboatDiagram({
           partId="svg-pont"
           label="Pont"
           isActive={isActive('svg-pont')}
+          isSelected={selectedPartId === 'svg-pont'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-pont', filter, isActive('svg-pont'))}
@@ -2087,6 +2130,7 @@ export default function SailboatDiagram({
           partId="svg-bastingage"
           label="Bastingage"
           isActive={isActive('svg-bastingage')}
+          isSelected={selectedPartId === 'svg-bastingage'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-bastingage', filter, isActive('svg-bastingage'))}
@@ -2105,6 +2149,7 @@ export default function SailboatDiagram({
           partId="svg-chandelier"
           label="Chandelier"
           isActive={isActive('svg-chandelier')}
+          isSelected={selectedPartId === 'svg-chandelier'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-chandelier', filter, isActive('svg-chandelier'))}
@@ -2136,6 +2181,7 @@ export default function SailboatDiagram({
           partId="svg-filiere"
           label="Filière"
           isActive={isActive('svg-filiere')}
+          isSelected={selectedPartId === 'svg-filiere'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-filiere', filter, isActive('svg-filiere'))}
@@ -2154,6 +2200,7 @@ export default function SailboatDiagram({
           partId="svg-winch"
           label="Winch"
           isActive={isActive('svg-winch')}
+          isSelected={selectedPartId === 'svg-winch'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-winch', filter, isActive('svg-winch'))}
@@ -2183,6 +2230,7 @@ export default function SailboatDiagram({
           partId="svg-taquet"
           label="Taquet"
           isActive={isActive('svg-taquet')}
+          isSelected={selectedPartId === 'svg-taquet'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-taquet', filter, isActive('svg-taquet'))}
@@ -2205,6 +2253,7 @@ export default function SailboatDiagram({
           partId="svg-puits-de-derive"
           label="Puits de dérive"
           isActive={isActive('svg-puits-de-derive')}
+          isSelected={selectedPartId === 'svg-puits-de-derive'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-puits-de-derive', filter, isActive('svg-puits-de-derive'))}
@@ -2228,6 +2277,7 @@ export default function SailboatDiagram({
           partId="svg-tableau-arriere"
           label="Tableau arrière"
           isActive={isActive('svg-tableau-arriere')}
+          isSelected={selectedPartId === 'svg-tableau-arriere'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-tableau-arriere', filter, isActive('svg-tableau-arriere'))}
@@ -2249,6 +2299,7 @@ export default function SailboatDiagram({
           partId="svg-ligne-de-flottaison"
           label="Ligne de flottaison"
           isActive={isActive('svg-ligne-de-flottaison')}
+          isSelected={selectedPartId === 'svg-ligne-de-flottaison'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-ligne-de-flottaison', filter, isActive('svg-ligne-de-flottaison'))}
@@ -2267,6 +2318,7 @@ export default function SailboatDiagram({
           partId="svg-compas"
           label="Compas"
           isActive={isActive('svg-compas')}
+          isSelected={selectedPartId === 'svg-compas'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-compas', filter, isActive('svg-compas'))}
@@ -2297,6 +2349,7 @@ export default function SailboatDiagram({
           partId="svg-sondeur"
           label="Sondeur"
           isActive={isActive('svg-sondeur')}
+          isSelected={selectedPartId === 'svg-sondeur'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-sondeur', filter, isActive('svg-sondeur'))}
@@ -2326,6 +2379,7 @@ export default function SailboatDiagram({
           partId="svg-loch"
           label="Loch"
           isActive={isActive('svg-loch')}
+          isSelected={selectedPartId === 'svg-loch'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-loch', filter, isActive('svg-loch'))}
@@ -2358,6 +2412,7 @@ export default function SailboatDiagram({
           partId="svg-chariot-ecoute"
           label="Chariot d'écoute"
           isActive={isActive('svg-chariot-ecoute')}
+          isSelected={selectedPartId === 'svg-chariot-ecoute'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-chariot-ecoute', filter, isActive('svg-chariot-ecoute'))}
@@ -2388,6 +2443,7 @@ export default function SailboatDiagram({
           partId="svg-appendices"
           label="Appendices"
           isActive={isActive('svg-appendices')}
+          isSelected={selectedPartId === 'svg-appendices'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-appendices', filter, isActive('svg-appendices'))}
@@ -2406,6 +2462,7 @@ export default function SailboatDiagram({
           partId="svg-bulbe"
           label="Bulbe"
           isActive={isActive('svg-bulbe')}
+          isSelected={selectedPartId === 'svg-bulbe'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-bulbe', filter, isActive('svg-bulbe'))}
@@ -2426,6 +2483,7 @@ export default function SailboatDiagram({
           partId="svg-lest"
           label="Lest"
           isActive={isActive('svg-lest')}
+          isSelected={selectedPartId === 'svg-lest'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-lest', filter, isActive('svg-lest'))}
@@ -2445,6 +2503,7 @@ export default function SailboatDiagram({
           partId="svg-foil"
           label="Foil"
           isActive={isActive('svg-foil')}
+          isSelected={selectedPartId === 'svg-foil'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-foil', filter, isActive('svg-foil'))}
@@ -2468,6 +2527,7 @@ export default function SailboatDiagram({
           partId="svg-voile-de-quille"
           label="Voile de quille"
           isActive={isActive('svg-voile-de-quille')}
+          isSelected={selectedPartId === 'svg-voile-de-quille'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-voile-de-quille', filter, isActive('svg-voile-de-quille'))}
@@ -2485,6 +2545,7 @@ export default function SailboatDiagram({
           partId="svg-bout"
           label="Bout"
           isActive={isActive('svg-bout')}
+          isSelected={selectedPartId === 'svg-bout'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-bout', filter, isActive('svg-bout'))}
@@ -2503,6 +2564,7 @@ export default function SailboatDiagram({
           partId="svg-cordage"
           label="Cordage"
           isActive={isActive('svg-cordage')}
+          isSelected={selectedPartId === 'svg-cordage'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-cordage', filter, isActive('svg-cordage'))}
@@ -2521,6 +2583,7 @@ export default function SailboatDiagram({
           partId="svg-aussiere"
           label="Aussière"
           isActive={isActive('svg-aussiere')}
+          isSelected={selectedPartId === 'svg-aussiere'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-aussiere', filter, isActive('svg-aussiere'))}
@@ -2538,6 +2601,7 @@ export default function SailboatDiagram({
           partId="svg-amarre"
           label="Amarre"
           isActive={isActive('svg-amarre')}
+          isSelected={selectedPartId === 'svg-amarre'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-amarre', filter, isActive('svg-amarre'))}
@@ -2556,6 +2620,7 @@ export default function SailboatDiagram({
           partId="svg-corde"
           label="Corde"
           isActive={isActive('svg-corde')}
+          isSelected={selectedPartId === 'svg-corde'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-corde', filter, isActive('svg-corde'))}
@@ -2574,6 +2639,7 @@ export default function SailboatDiagram({
           partId="svg-tribord"
           label="Tribord"
           isActive={isActive('svg-tribord')}
+          isSelected={selectedPartId === 'svg-tribord'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-tribord', filter, isActive('svg-tribord'))}
@@ -2592,6 +2658,7 @@ export default function SailboatDiagram({
           partId="svg-babord"
           label="Bâbord"
           isActive={isActive('svg-babord')}
+          isSelected={selectedPartId === 'svg-babord'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-babord', filter, isActive('svg-babord'))}
@@ -2610,6 +2677,7 @@ export default function SailboatDiagram({
           partId="svg-bouchain"
           label="Bouchain"
           isActive={isActive('svg-bouchain')}
+          isSelected={selectedPartId === 'svg-bouchain'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-bouchain', filter, isActive('svg-bouchain'))}
@@ -2628,6 +2696,7 @@ export default function SailboatDiagram({
           partId="svg-carene"
           label="Carène"
           isActive={isActive('svg-carene')}
+          isSelected={selectedPartId === 'svg-carene'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-carene', filter, isActive('svg-carene'))}
@@ -2647,6 +2716,7 @@ export default function SailboatDiagram({
           partId="svg-franc-bord"
           label="Franc-bord"
           isActive={isActive('svg-franc-bord')}
+          isSelected={selectedPartId === 'svg-franc-bord'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-franc-bord', filter, isActive('svg-franc-bord'))}
@@ -2665,6 +2735,7 @@ export default function SailboatDiagram({
           partId="svg-etrave"
           label="Étrave"
           isActive={isActive('svg-etrave')}
+          isSelected={selectedPartId === 'svg-etrave'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-etrave', filter, isActive('svg-etrave'))}
@@ -2683,6 +2754,7 @@ export default function SailboatDiagram({
           partId="svg-bout-dehors"
           label="Bout-dehors"
           isActive={isActive('svg-bout-dehors')}
+          isSelected={selectedPartId === 'svg-bout-dehors'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-bout-dehors', filter, isActive('svg-bout-dehors'))}
@@ -2701,6 +2773,7 @@ export default function SailboatDiagram({
           partId="svg-guindeau"
           label="Guindeau"
           isActive={isActive('svg-guindeau')}
+          isSelected={selectedPartId === 'svg-guindeau'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-guindeau', filter, isActive('svg-guindeau'))}
@@ -2720,6 +2793,7 @@ export default function SailboatDiagram({
           partId="svg-espar"
           label="Espar"
           isActive={isActive('svg-espar')}
+          isSelected={selectedPartId === 'svg-espar'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-espar', filter, isActive('svg-espar'))}
@@ -2738,6 +2812,7 @@ export default function SailboatDiagram({
           partId="svg-vit-de-mulet"
           label="Vit-de-mulet"
           isActive={isActive('svg-vit-de-mulet')}
+          isSelected={selectedPartId === 'svg-vit-de-mulet'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-vit-de-mulet', filter, isActive('svg-vit-de-mulet'))}
@@ -2757,6 +2832,7 @@ export default function SailboatDiagram({
           partId="svg-sous-barbe"
           label="Sous-barbe"
           isActive={isActive('svg-sous-barbe')}
+          isSelected={selectedPartId === 'svg-sous-barbe'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-sous-barbe', filter, isActive('svg-sous-barbe'))}
@@ -2775,6 +2851,7 @@ export default function SailboatDiagram({
           partId="svg-solent"
           label="Solent"
           isActive={isActive('svg-solent')}
+          isSelected={selectedPartId === 'svg-solent'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-solent', filter, isActive('svg-solent'))}
@@ -2793,6 +2870,7 @@ export default function SailboatDiagram({
           partId="svg-code-zero"
           label="Code 0"
           isActive={isActive('svg-code-zero')}
+          isSelected={selectedPartId === 'svg-code-zero'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-code-zero', filter, isActive('svg-code-zero'))}
@@ -2811,6 +2889,7 @@ export default function SailboatDiagram({
           partId="svg-voile-de-cape"
           label="Voile de cape"
           isActive={isActive('svg-voile-de-cape')}
+          isSelected={selectedPartId === 'svg-voile-de-cape'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-voile-de-cape', filter, isActive('svg-voile-de-cape'))}
@@ -2829,6 +2908,7 @@ export default function SailboatDiagram({
           partId="svg-cadene"
           label="Cadène"
           isActive={isActive('svg-cadene')}
+          isSelected={selectedPartId === 'svg-cadene'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-cadene', filter, isActive('svg-cadene'))}
@@ -2847,6 +2927,7 @@ export default function SailboatDiagram({
           partId="svg-bastaque"
           label="Bastaque"
           isActive={isActive('svg-bastaque')}
+          isSelected={selectedPartId === 'svg-bastaque'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-bastaque', filter, isActive('svg-bastaque'))}
@@ -2865,6 +2946,7 @@ export default function SailboatDiagram({
           partId="svg-ligne-de-vie"
           label="Ligne de vie"
           isActive={isActive('svg-ligne-de-vie')}
+          isSelected={selectedPartId === 'svg-ligne-de-vie'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-ligne-de-vie', filter, isActive('svg-ligne-de-vie'))}
@@ -2884,6 +2966,7 @@ export default function SailboatDiagram({
           partId="svg-rouf"
           label="Rouf"
           isActive={isActive('svg-rouf')}
+          isSelected={selectedPartId === 'svg-rouf'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-rouf', filter, isActive('svg-rouf'))}
@@ -2903,6 +2986,7 @@ export default function SailboatDiagram({
           partId="svg-balcon"
           label="Balcon"
           isActive={isActive('svg-balcon')}
+          isSelected={selectedPartId === 'svg-balcon'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-balcon', filter, isActive('svg-balcon'))}
@@ -2930,6 +3014,7 @@ export default function SailboatDiagram({
           partId="svg-mousqueton"
           label="Mousqueton"
           isActive={isActive('svg-mousqueton')}
+          isSelected={selectedPartId === 'svg-mousqueton'}
           onHover={handlePartHover}
           onClick={handlePartClick}
           opacity={getPartOpacity('svg-mousqueton', filter, isActive('svg-mousqueton'))}
