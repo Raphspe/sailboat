@@ -568,12 +568,15 @@ export default function HomePage() {
         }}>
           <button
             onClick={() => setMobileTab('diagram')}
-            className={`flex-1 flex items-center justify-center gap-2 py-3 text-xs font-medium transition-colors ${
+            className={`flex-1 flex items-center justify-center gap-2 py-3 text-xs font-medium transition-colors relative ${
               mobileTab === 'diagram' ? 'text-ocean-400 bg-ocean-500/10' : 'text-foam-300/40'
             }`}
           >
             <Eye size={15} />
             Schéma
+            {diagramHighlightId && mobileTab === 'lexicon' && (
+              <span className="absolute top-2 right-[30%] w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+            )}
           </button>
           <button
             onClick={() => setMobileTab('lexicon')}
