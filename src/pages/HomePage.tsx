@@ -222,7 +222,7 @@ export default function HomePage() {
     >
       {/* === FULL SCREEN: Dynamic Diagram === */}
       <div
-        className="absolute inset-0 flex items-center justify-center"
+        className={`absolute inset-0 flex items-center justify-center ${mobileTab === 'lexicon' ? 'invisible lg:visible' : ''}`}
         onClick={() => {
           setSelectedEntry(null)
           setSelectedPartFromDiagram(null)
@@ -231,8 +231,7 @@ export default function HomePage() {
       >
         <div className="w-full h-full p-2">
           <div className="w-full h-full">
-            {/* On mobile: only render diagram when tab is active. On desktop: always render */}
-            {(mobileTab === 'diagram' || isDesktop) && renderDiagram()}
+            {renderDiagram()}
           </div>
         </div>
       </div>
