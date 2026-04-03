@@ -30,7 +30,7 @@ export default function LexiconPage() {
 
   const filteredEntries = useMemo(() => {
     if (!searchQuery.trim()) return null
-    const q = normalize(searchQuery)
+    const q = normalize(searchQuery.trim())
     return allEntries.filter(e =>
       normalize(e.term).includes(q) ||
       e.aliases?.some(a => normalize(a).includes(q))
