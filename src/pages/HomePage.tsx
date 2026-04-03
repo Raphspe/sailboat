@@ -577,7 +577,7 @@ export default function HomePage() {
             <Eye size={15} />
             Schéma
             {diagramHighlightId && mobileTab === 'lexicon' && (
-              <span className="absolute top-2 right-[30%] w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
             )}
           </button>
           <button
