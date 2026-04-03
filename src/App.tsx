@@ -3,6 +3,7 @@ import { AnimatePresence } from 'framer-motion'
 import { lazy, Suspense, useEffect } from 'react'
 import Header from './components/layout/Header'
 import ThemeToggle from './components/ui/ThemeToggle'
+import { Analytics } from '@vercel/analytics/react'
 
 const LandingPage = lazy(() => import('./pages/LandingPage'))
 const HomePage = lazy(() => import('./pages/HomePage'))
@@ -43,6 +44,7 @@ function App() {
         </Suspense>
       </main>
       <ThemeToggle />
+      <Analytics />
     </>
   )
 }
