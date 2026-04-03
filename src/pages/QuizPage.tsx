@@ -127,7 +127,7 @@ export default function QuizPage() {
       className="min-h-screen flex flex-col lg:flex-row"
     >
       {/* Progress bar at the very top */}
-      <div className="fixed top-16 left-0 right-0 z-40 h-1 bg-white/5">
+      <div className="fixed top-16 left-0 right-0 z-10 h-1 bg-white/5">
         <motion.div
           className="h-full bg-ocean-400"
           initial={{ width: 0 }}
