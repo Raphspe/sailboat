@@ -217,4 +217,49 @@ export const manoeuvresEntries: LexiconEntry[] = [
     diagramPartId: 'svg-bastaque',
     relatedTerms: ['hauban', 'galhauban', 'pataras'],
   },
+  {
+    id: 'lazy-jack',
+    term: 'Lazy jack',
+    aliases: ['Lazy jacks'],
+    definition:
+      "Système de filins tendus de chaque côté de la bôme, formant un berceau qui guide la grand-voile quand on l'affale. Les lazy jacks empêchent la voile de tomber sur le pont ou dans le cockpit et facilitent le rangement dans le lazy bag.",
+    shortDefinition: "Filins guidant la grand-voile lors de l'affalage.",
+    category: 'manoeuvres',
+    diagramPartId: 'svg-lazy-bag',
+    relatedTerms: ['lazy-bag', 'grand-voile', 'affaler', 'bome', 'lattes'],
+    tips: "Écarte les lazy jacks avant de hisser la grand-voile pour éviter que les lattes se coincent dedans.",
+  },
+  {
+    id: 'pare-battage',
+    term: 'Pare-battage',
+    aliases: ['Défense'],
+    definition:
+      "Boudin gonflable placé entre le bateau et le quai pour protéger la coque lors de l'accostage ou au mouillage à couple. Les pare-battages sont suspendus aux filières ou au bastingage à la hauteur de la ligne de flottaison.",
+    shortDefinition: "Protection gonflable entre le bateau et le quai.",
+    category: 'manoeuvres',
+    diagramPartId: 'svg-coque',
+    relatedTerms: ['accostage', 'amarre', 'coque', 'bastingage'],
+    tips: "Place les pare-battages AVANT l'accostage, pas pendant ! Ajuste leur hauteur à la ligne de flottaison.",
+  },
+  {
+    id: 'auto-vireur',
+    term: 'Auto-vireur',
+    definition:
+      "Système permettant au foc de changer de côté automatiquement lors d'un virement de bord, sans manipuler les écoutes. Le rail d'écoute auto-vireur est un rail courbe unique passant devant le mât. Très pratique en solitaire.",
+    shortDefinition: "Système de rail permettant au foc de virer seul.",
+    category: 'manoeuvres',
+    diagramPartId: 'svg-chariot-ecoute',
+    relatedTerms: ['virement-de-bord', 'genois', 'foc', 'ecoute'],
+  },
+  {
+    id: 'fardage',
+    term: 'Fardage',
+    definition:
+      "Surface du bateau exposée au vent au-dessus de la ligne de flottaison. Plus le fardage est important, plus le vent a de prise sur le bateau à l'arrêt. Un fort fardage rend les manœuvres de port difficiles par vent de travers.",
+    shortDefinition: "Surface du bateau exposée au vent hors de l'eau.",
+    category: 'manoeuvres',
+    diagramPartId: 'svg-coque',
+    relatedTerms: ['derive-navigation', 'accostage', 'mouillage'],
+    tips: "Par vent fort au port, réduis le fardage : affale le bimini, range l'annexe, ferme le génois sur l'enrouleur.",
+  },
 ];

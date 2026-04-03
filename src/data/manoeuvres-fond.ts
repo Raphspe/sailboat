@@ -224,4 +224,26 @@ export const manoeuvresFondEntries: LexiconEntry[] = [
     diagramPartId: 'mnv-virement',
     relatedTerms: ['lofer', 'depart-au-lof', 'abattre'],
   },
+  {
+    id: 'envoi',
+    term: 'Envoi',
+    definition:
+      "Action de déployer une voile, en particulier le spinnaker ou le gennaker. L'envoi est une manœuvre qui demande de la coordination : on prépare la voile dans son sac ou sa chaussette, on la connecte aux écoutes et au bras, puis on la hisse rapidement à la drisse. Un envoi raté peut conduire à un \"sac de nœuds\" ou à un engagement sous la coque.",
+    shortDefinition: "Action de déployer une voile, notamment le spinnaker.",
+    category: 'manoeuvres-fondamentales',
+    diagramPartId: 'mnv-virement',
+    relatedTerms: ['affalage', 'spinnaker', 'gennaker', 'hisser', 'drisse'],
+    tips: "Prépare tout avant l'envoi : bras, écoute, drisse clairs et sans tour. L'équipier au piano doit être prêt à choquer en urgence.",
+  },
+  {
+    id: 'affalage',
+    term: 'Affalage',
+    definition:
+      "Action de descendre et de ranger une voile, en particulier le spinnaker. L'affalage est l'opération inverse de l'envoi. On choque la drisse progressivement pendant qu'un équipier récupère la voile à bord, soit par le pont, soit dans une chaussette à spi. Un affalage mal contrôlé peut mettre la voile à l'eau.",
+    shortDefinition: "Action de descendre et ranger une voile, inverse de l'envoi.",
+    category: 'manoeuvres-fondamentales',
+    diagramPartId: 'mnv-virement',
+    relatedTerms: ['envoi', 'affaler', 'spinnaker', 'drisse'],
+    tips: "Pour un affalage propre du spi, abats au grand largue, choque le bras, et ramène la voile derrière la grand-voile à l'abri du vent.",
+  },
 ];
