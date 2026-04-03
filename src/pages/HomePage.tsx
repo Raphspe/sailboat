@@ -232,7 +232,9 @@ export default function HomePage() {
       </div>
 
       {/* === FLOATING LEXICON PANEL === */}
-      <div className={`absolute inset-x-0 top-0 bottom-16 lg:inset-x-auto lg:top-6 lg:bottom-auto lg:right-16 lg:w-[440px] lg:max-h-[calc(100%-2rem)] z-20 transition-opacity duration-300 ${mobileTab === 'diagram' ? 'opacity-0 pointer-events-none lg:opacity-100 lg:pointer-events-auto' : ''}`}>
+      <div
+        className={`absolute inset-x-0 bottom-16 lg:inset-x-auto lg:bottom-auto lg:right-16 lg:w-[440px] lg:max-h-[calc(100%-2rem)] z-20 transition-opacity duration-300 lexicon-panel ${mobileTab === 'diagram' ? 'opacity-0 pointer-events-none lg:opacity-100 lg:pointer-events-auto' : ''}`}
+      >
         <div
           ref={panelRef}
           className="flex flex-col overflow-hidden h-full lg:h-auto lg:rounded-3xl"

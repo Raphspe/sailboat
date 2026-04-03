@@ -168,7 +168,16 @@ body {
     background: transparent;
   }
 
+  /* Lexicon panel position — safe area on mobile, fixed on desktop */
+  .lexicon-panel {
+    top: calc(env(safe-area-inset-top, 0px) + 3.5rem);
+  }
+
   @media (min-width: 1024px) {
+    .lexicon-panel {
+      top: 1.5rem;
+    }
+
     [data-panel="lexicon"] {
       background: rgba(3, 13, 26, 0.65);
       backdrop-filter: blur(40px) saturate(1.3);
