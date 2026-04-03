@@ -114,11 +114,11 @@ export default function LexiconPage() {
         </div>
       )}
 
-      {/* Ad banner — full width under categories */}
+      {/* Ad banner — same width as cards grid */}
       {!filteredEntries && (
-        <div className="mt-6 flex justify-center" id="ad-banner">
+        <div className="mt-6" id="ad-banner">
           <div
-            className="w-full max-w-4xl h-[90px] rounded-2xl flex items-center justify-center border border-dashed border-white/[0.06] text-foam-300/15 text-xs"
+            className="w-full h-[90px] rounded-2xl flex items-center justify-center border border-dashed border-white/[0.06] text-foam-300/15 text-xs"
             style={{ background: 'rgba(14,165,233,0.02)' }}
           >
             Espace publicitaire
