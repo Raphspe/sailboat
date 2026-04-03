@@ -24,10 +24,10 @@ export default function ContactPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           type,
-          name: name || 'Anonyme',
-          email: email || 'non renseigné',
+          name,
+          email,
           message,
-          _subject: `[SAILBOAT] ${type === 'bug' ? 'Bug' : type === 'feature' ? 'Évolution' : 'Message'} — ${name || 'Anonyme'}`,
+          _subject: `[SAILBOAT] ${type === 'bug' ? 'Bug' : type === 'feature' ? 'Évolution' : 'Message'} — ${name}`,
         }),
       })
 
@@ -45,7 +45,7 @@ export default function ContactPage() {
   }
 
   const typeOptions: { id: FormType; label: string; emoji: string }[] = [
-    { id: 'bug', label: 'Bug', emoji: '🐛' },
+    { id: 'bug', label: 'Bug', emoji: '⚠️' },
     { id: 'feature', label: 'Évolution', emoji: '💡' },
     { id: 'autre', label: 'Autre', emoji: '💬' },
   ]
@@ -107,24 +107,26 @@ export default function ContactPage() {
 
           {/* Name */}
           <div>
-            <label className="text-foam-300/40 text-xs uppercase tracking-widest mb-2 block">Nom (optionnel)</label>
+            <label className="text-foam-300/40 text-xs uppercase tracking-widest mb-2 block">Nom *</label>
             <input
               type="text"
               value={name}
               onChange={e => setName(e.target.value)}
               placeholder="Ton nom"
+              required
               className="w-full bg-white/[0.03] border border-white/[0.05] rounded-2xl px-4 py-3 text-base text-foam-100 placeholder-foam-300/20 outline-none focus:border-ocean-500/20 transition-all"
             />
           </div>
 
           {/* Email */}
           <div>
-            <label className="text-foam-300/40 text-xs uppercase tracking-widest mb-2 block">Email (optionnel)</label>
+            <label className="text-foam-300/40 text-xs uppercase tracking-widest mb-2 block">Email *</label>
             <input
               type="email"
               value={email}
               onChange={e => setEmail(e.target.value)}
               placeholder="ton@email.com"
+              required
               className="w-full bg-white/[0.03] border border-white/[0.05] rounded-2xl px-4 py-3 text-base text-foam-100 placeholder-foam-300/20 outline-none focus:border-ocean-500/20 transition-all"
             />
           </div>
@@ -153,7 +155,7 @@ export default function ContactPage() {
           {/* Submit */}
           <button
             type="submit"
-            disabled={!message.trim() || status === 'sending'}
+            disabled={!message.trim() || !name.trim() || !email.trim() || status === 'sending'}
             className="w-full py-3.5 rounded-2xl font-semibold text-sm transition-all disabled:opacity-30 disabled:cursor-default flex items-center justify-center gap-2"
             style={{
               background: 'linear-gradient(135deg, rgba(14,165,233,0.2), rgba(6,182,212,0.15))',
