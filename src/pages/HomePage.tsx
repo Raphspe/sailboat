@@ -580,7 +580,7 @@ export default function HomePage() {
           marginBottom: 'max(1rem, env(safe-area-inset-bottom, 1rem))',
         }}>
           <button
-            onClick={() => setMobileTab('diagram')}
+            onClick={() => { setMobileTab('diagram'); setHoveredPartId(null) }}
             className={`flex-1 flex items-center justify-center gap-2 py-3 text-xs font-medium transition-colors relative ${
               mobileTab === 'diagram' ? 'text-ocean-400 bg-ocean-500/10' : 'text-foam-300/40'
             }`}
