@@ -566,11 +566,6 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* DEBUG — temporary */}
-      <div className="fixed top-14 left-2 right-2 z-50 text-[9px] text-amber-400 bg-black/90 px-2 py-1.5 rounded lg:hidden leading-relaxed">
-        hl:{diagramHighlightId || '-'} | hover:{hoveredPartId || '-'} | partId:{selectedEntry?.diagramPartId || '-'} | spi:{selectedPartFromDiagram?.id || '-'} | e:{selectedEntry?.term || '-'}
-      </div>
-
       {/* === MOBILE TAB BAR === */}
       <div className="fixed bottom-0 left-0 right-0 z-30 lg:hidden">
         <div className="flex mx-4 rounded-2xl overflow-hidden" style={{
