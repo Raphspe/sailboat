@@ -24,9 +24,9 @@ export default function SailboatPart({
 }: SailboatPartProps) {
   const selectedGlow = {
     filter: [
-      'drop-shadow(0 0 14px rgba(250, 204, 21, 0.9)) drop-shadow(0 0 5px rgba(250, 204, 21, 0.5))',
-      'drop-shadow(0 0 5px rgba(250, 204, 21, 0.3)) drop-shadow(0 0 2px rgba(250, 204, 21, 0.15))',
-      'drop-shadow(0 0 14px rgba(250, 204, 21, 0.9)) drop-shadow(0 0 5px rgba(250, 204, 21, 0.5))',
+      'drop-shadow(0 0 20px rgba(250, 204, 21, 1)) drop-shadow(0 0 8px rgba(250, 204, 21, 0.8)) drop-shadow(0 0 3px rgba(250, 204, 21, 0.6))',
+      'drop-shadow(0 0 6px rgba(250, 204, 21, 0.3)) drop-shadow(0 0 2px rgba(250, 204, 21, 0.15))',
+      'drop-shadow(0 0 20px rgba(250, 204, 21, 1)) drop-shadow(0 0 8px rgba(250, 204, 21, 0.8)) drop-shadow(0 0 3px rgba(250, 204, 21, 0.6))',
     ],
   }
 
