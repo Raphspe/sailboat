@@ -10,6 +10,8 @@ interface SailboatPartProps {
   onClick: (partId: string) => void
   children: ReactNode
   opacity?: number
+  cx?: number
+  cy?: number
 }
 
 export default function SailboatPart({
@@ -21,49 +23,52 @@ export default function SailboatPart({
   onClick,
   children,
   opacity = 1,
+  cx,
+  cy,
 }: SailboatPartProps) {
-  const selectedGlow = {
-    filter: [
-      'drop-shadow(0 0 20px rgba(250, 204, 21, 1)) drop-shadow(0 0 8px rgba(250, 204, 21, 0.8)) drop-shadow(0 0 3px rgba(250, 204, 21, 0.6))',
-      'drop-shadow(0 0 6px rgba(250, 204, 21, 0.3)) drop-shadow(0 0 2px rgba(250, 204, 21, 0.15))',
-      'drop-shadow(0 0 20px rgba(250, 204, 21, 1)) drop-shadow(0 0 8px rgba(250, 204, 21, 0.8)) drop-shadow(0 0 3px rgba(250, 204, 21, 0.6))',
-    ],
-  }
-
-  const hoverGlow = {
-    filter: 'drop-shadow(0 0 12px rgba(14, 165, 233, 0.8)) drop-shadow(0 0 4px rgba(14, 165, 233, 0.4))',
-  }
-
-  const noGlow = {
-    filter: 'drop-shadow(0 0 0px transparent)',
-  }
-
   return (
     <motion.g
-      key={isSelected ? `${partId}-selected` : partId}
       id={partId}
       className="svg-part"
       onMouseEnter={() => onHover(partId)}
       onMouseLeave={() => onHover(null)}
       onClick={(e) => { e.stopPropagation(); onClick(partId) }}
       style={{ opacity }}
-      animate={isSelected ? 'selected' : isActive ? 'hover' : 'idle'}
-      variants={{
-        selected: { filter: selectedGlow.filter },
-        hover: { filter: hoverGlow.filter },
-        idle: { filter: noGlow.filter },
-      }}
-      transition={isSelected ? {
-        filter: { duration: 1.2, repeat: Infinity, ease: 'easeInOut' },
-      } : {
-        filter: { duration: 0.3 },
-      }}
       whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.97 }}
       role="button"
       aria-label={label}
     >
-      {children}
+      {/* Pulsing yellow circle behind selected component — visible on all devices */}
+      {isSelected && cx != null && cy != null && (
+        <motion.circle
+          cx={cx}
+          cy={cy}
+          r={20}
+          fill="rgba(250, 204, 21, 0.15)"
+          stroke="rgba(250, 204, 21, 0.6)"
+          strokeWidth={2}
+          animate={{
+            r: [18, 24, 18],
+            opacity: [0.8, 0.3, 0.8],
+            strokeWidth: [2, 1, 2],
+          }}
+          transition={{
+            duration: 1.2,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+        />
+      )}
+      {/* Hover blue glow — CSS filter works fine on desktop */}
+      <g style={{
+        filter: isActive && !isSelected
+          ? 'drop-shadow(0 0 10px rgba(14, 165, 233, 0.7))'
+          : 'none',
+        transition: 'filter 0.3s ease',
+      }}>
+        {children}
+      </g>
     </motion.g>
   )
 }
