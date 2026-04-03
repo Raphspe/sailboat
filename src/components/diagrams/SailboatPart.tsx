@@ -23,8 +23,6 @@ export default function SailboatPart({
   onClick,
   children,
   opacity = 1,
-  cx,
-  cy,
 }: SailboatPartProps) {
   return (
     <motion.g
@@ -39,36 +37,32 @@ export default function SailboatPart({
       role="button"
       aria-label={label}
     >
-      {/* Pulsing yellow circle behind selected component — visible on all devices */}
-      {isSelected && cx != null && cy != null && (
-        <motion.circle
-          cx={cx}
-          cy={cy}
-          r={20}
-          fill="rgba(250, 204, 21, 0.15)"
-          stroke="rgba(250, 204, 21, 0.6)"
-          strokeWidth={2}
+      {isSelected ? (
+        <motion.g
           animate={{
-            r: [18, 24, 18],
-            opacity: [0.8, 0.3, 0.8],
-            strokeWidth: [2, 1, 2],
+            opacity: [1, 0.4, 1],
           }}
           transition={{
-            duration: 1.2,
+            duration: 1,
             repeat: Infinity,
             ease: 'easeInOut',
           }}
-        />
+          style={{
+            filter: 'brightness(1.5) saturate(0.3) sepia(1) hue-rotate(10deg) saturate(3) brightness(1.2)',
+          }}
+        >
+          {children}
+        </motion.g>
+      ) : (
+        <g style={{
+          filter: isActive
+            ? 'drop-shadow(0 0 10px rgba(14, 165, 233, 0.7))'
+            : 'none',
+          transition: 'filter 0.3s ease',
+        }}>
+          {children}
+        </g>
       )}
-      {/* Hover blue glow — CSS filter works fine on desktop */}
-      <g style={{
-        filter: isActive && !isSelected
-          ? 'drop-shadow(0 0 10px rgba(14, 165, 233, 0.7))'
-          : 'none',
-        transition: 'filter 0.3s ease',
-      }}>
-        {children}
-      </g>
     </motion.g>
   )
 }
