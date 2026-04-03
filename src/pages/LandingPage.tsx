@@ -143,49 +143,6 @@ export default function LandingPage() {
           ))}
         </motion.div>
 
-        {/* Book recommendations */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 0.8 }}
-          className="hidden sm:block mt-10"
-        >
-          <p className="text-foam-300/20 text-[10px] uppercase tracking-widest text-center mb-3">Pour aller plus loin</p>
-          <div className="flex gap-3 justify-center">
-            <a
-              href="https://www.amazon.fr/dp/2020130912?tag=YOUR_AFFILIATE_TAG"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 px-4 py-3 rounded-2xl transition-all duration-300 hover:-translate-y-0.5"
-              style={{
-                background: 'rgba(3, 13, 26, 0.4)',
-                border: '1px solid rgba(255,255,255,0.05)',
-              }}
-            >
-              <span className="text-lg">📘</span>
-              <div>
-                <p className="text-foam-100/70 text-xs font-medium">Le cours des Glénans</p>
-                <p className="text-foam-300/25 text-[10px]">La bible de la voile</p>
-              </div>
-            </a>
-            <a
-              href="https://www.amazon.fr/dp/2742448187?tag=YOUR_AFFILIATE_TAG"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 px-4 py-3 rounded-2xl transition-all duration-300 hover:-translate-y-0.5"
-              style={{
-                background: 'rgba(3, 13, 26, 0.4)',
-                border: '1px solid rgba(255,255,255,0.05)',
-              }}
-            >
-              <span className="text-lg">📙</span>
-              <div>
-                <p className="text-foam-100/70 text-xs font-medium">Voile et navigation</p>
-                <p className="text-foam-300/25 text-[10px]">Le guide pratique Vagnon</p>
-              </div>
-            </a>
-          </div>
-        </motion.div>
       </div>
     </motion.div>
   )
