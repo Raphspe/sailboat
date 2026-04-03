@@ -23,8 +23,6 @@ export default function SailboatPart({
   onClick,
   children,
   opacity = 1,
-  cx,
-  cy,
 }: SailboatPartProps) {
   return (
     <motion.g
@@ -39,20 +37,20 @@ export default function SailboatPart({
       role="button"
       aria-label={label}
     >
-      {children}
-
-      {/* Selected indicator — native SVG animation, works on all devices */}
-      {isSelected && cx != null && cy != null && (
-        <circle cx={cx} cy={cy} r="16" fill="none" stroke="#facc15" strokeWidth="3">
-          <animate attributeName="r" values="14;22;14" dur="1.2s" repeatCount="indefinite" />
-          <animate attributeName="stroke-opacity" values="0.9;0.2;0.9" dur="1.2s" repeatCount="indefinite" />
-          <animate attributeName="stroke-width" values="3;1;3" dur="1.2s" repeatCount="indefinite" />
-        </circle>
-      )}
-
-      {/* Hover glow — desktop only via CSS */}
-      {isActive && !isSelected && (
-        <circle cx={cx || 0} cy={cy || 0} r="18" fill="none" stroke="rgba(56,189,248,0.4)" strokeWidth="1.5" />
+      {isSelected ? (
+        <g>
+          <animate attributeName="opacity" values="1;0.3;1" dur="1.2s" repeatCount="indefinite" />
+          {children}
+        </g>
+      ) : (
+        <g style={{
+          filter: isActive
+            ? 'drop-shadow(0 0 10px rgba(14, 165, 233, 0.7))'
+            : 'none',
+          transition: 'filter 0.3s ease',
+        }}>
+          {children}
+        </g>
       )}
     </motion.g>
   )

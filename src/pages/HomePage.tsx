@@ -493,7 +493,7 @@ export default function HomePage() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.1 }}
-                  className="text-foam-200/70 text-[14px] leading-relaxed"
+                  className="text-foam-200/70 text-[14px] leading-relaxed text-justify"
                 >
                   {selectedEntry.definition}
                 </motion.p>
