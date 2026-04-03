@@ -154,8 +154,10 @@ export default function HomePage() {
     }
   }
 
-  // The part to highlight on the diagram — from entry hover/select OR from diagram click
-  const diagramHighlightId = hoveredPartId
+  // The part to highlight on the diagram
+  // On mobile, hoveredPartId can get stuck (no mouseLeave on touch), so ignore it when on lexicon tab
+  const effectiveHoveredId = (isDesktop || mobileTab === 'diagram') ? hoveredPartId : null
+  const diagramHighlightId = effectiveHoveredId
     || selectedEntry?.diagramPartId
     || selectedPartFromDiagram?.id
     || null
