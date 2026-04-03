@@ -2,6 +2,7 @@ import { useState, useMemo, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Wind, Triangle, Ship, Cable, SlidersHorizontal, Compass, RotateCcw, MessageCircle, ChevronRight, ChevronLeft, X, ArrowLeft, Play, Eye, List, Search } from 'lucide-react'
 import SailboatDiagram from '../components/diagrams/SailboatDiagram'
+import { useMediaQuery } from '../hooks/useMediaQuery'
 import ImagePreview from '../components/ui/ImagePreview'
 import WindDiagram from '../components/diagrams/WindDiagram'
 import SailTrimDiagram from '../components/diagrams/SailTrimDiagram'
@@ -40,6 +41,7 @@ interface SelectedPart {
 }
 
 export default function HomePage() {
+  const isDesktop = useMediaQuery('(min-width: 1024px)')
   const [panelView, setPanelView] = useState<PanelView>('categories')
   const [activeCategoryId, setActiveCategoryId] = useState<string | null>(null)
   const [selectedEntry, setSelectedEntry] = useState<LexiconEntry | null>(null)
@@ -176,7 +178,7 @@ export default function HomePage() {
           <SailboatDiagram
             onPartSelect={handleDiagramPartSelect}
             selectedPartId={diagramHighlightId}
-            enableZoom
+            enableZoom={isDesktop}
             filter="voiles"
           />
         )
@@ -185,7 +187,7 @@ export default function HomePage() {
           <SailboatDiagram
             onPartSelect={handleDiagramPartSelect}
             selectedPartId={diagramHighlightId}
-            enableZoom
+            enableZoom={isDesktop}
             filter="cordages"
           />
         )
@@ -194,7 +196,7 @@ export default function HomePage() {
           <SailboatDiagram
             onPartSelect={handleDiagramPartSelect}
             selectedPartId={diagramHighlightId}
-            enableZoom
+            enableZoom={isDesktop}
           />
         )
       default:
@@ -202,7 +204,7 @@ export default function HomePage() {
           <SailboatDiagram
             onPartSelect={handleDiagramPartSelect}
             selectedPartId={diagramHighlightId}
-            enableZoom
+            enableZoom={isDesktop}
           />
         )
     }
