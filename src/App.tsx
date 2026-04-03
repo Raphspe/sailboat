@@ -9,6 +9,7 @@ const LandingPage = lazy(() => import('./pages/LandingPage'))
 const HomePage = lazy(() => import('./pages/HomePage'))
 const LexiconPage = lazy(() => import('./pages/LexiconPage'))
 const CategoryPage = lazy(() => import('./pages/CategoryPage'))
+const ContactPage = lazy(() => import('./pages/ContactPage'))
 const ComparePage = lazy(() => import('./pages/ComparePage'))
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
               <Route path="/explorer" element={<HomePage />} />
               <Route path="/lexique" element={<LexiconPage />} />
               <Route path="/lexique/:categoryId" element={<CategoryPage />} />
+              <Route path="/contact" element={<ContactPage />} />
               <Route path="/compare" element={<ComparePage />} />
             </Routes>
           </AnimatePresence>

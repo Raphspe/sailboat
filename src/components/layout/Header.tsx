@@ -8,6 +8,7 @@ const navLinks = [
   { to: '/', label: 'Accueil' },
   { to: '/explorer', label: 'Explorer' },
   { to: '/lexique', label: 'Lexique' },
+  { to: '/contact', label: 'Contact' },
 ];
 
 /* Shared glass style that blends with the ocean gradient background */
