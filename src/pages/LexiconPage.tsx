@@ -21,7 +21,7 @@ const COLOR_MAP: Record<string, { bg: string; text: string }> = {
 }
 
 function normalize(str: string) {
-  return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+  return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/['']/g, ' ').replace(/\b(l|d|s|n|j|qu)\b/gi, '').toLowerCase().trim()
 }
 
 export default function LexiconPage() {
