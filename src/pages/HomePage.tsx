@@ -129,11 +129,11 @@ export default function HomePage() {
 
   const goToEntry = (index: number) => {
     const entry = playEntries[index]
+    console.log('goToEntry', index, entry?.term, entry?.diagramPartId)
     if (entry) {
       setSelectedEntry(entry)
       setSelectedPartFromDiagram(null)
       setPanelView('detail')
-      // Auto-select the entry's category so the diagram matches
       if (!activeCategoryId || entry.category !== activeCategoryId) {
         setActiveCategoryId(entry.category)
       }
@@ -564,9 +564,9 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* DEBUG */}
-      <div className="fixed top-14 left-2 z-50 text-[9px] text-amber-400 bg-black/80 px-2 py-1 rounded lg:hidden">
-        {diagramHighlightId || 'none'} | {mobileTab} | {panelView}
+      {/* DEBUG — temporary */}
+      <div className="fixed top-14 left-2 right-2 z-50 text-[9px] text-amber-400 bg-black/90 px-2 py-1.5 rounded lg:hidden leading-relaxed">
+        hl:{diagramHighlightId || '-'} | e:{selectedEntry?.term || '-'} | idx:{currentEntryIndex}/{playEntries.length} | cat:{activeCategoryId || '-'} | v:{panelView}
       </div>
 
       {/* === MOBILE TAB BAR === */}
