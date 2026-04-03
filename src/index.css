@@ -170,7 +170,7 @@ body {
 
   /* Lexicon panel position — safe area on mobile, fixed on desktop */
   .lexicon-panel {
-    top: calc(env(safe-area-inset-top, 0px) + 3.5rem);
+    top: calc(env(safe-area-inset-top, 0px) + 2.5rem);
   }
 
   @media (min-width: 1024px) {
