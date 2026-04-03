@@ -130,8 +130,8 @@ export default function WindDiagram({ selectedId }: { selectedId?: string | null
             <polygon points="0 0, 8 3, 0 6" fill="#7dd3fc" />
           </marker>
         </defs>
-        <line x1={cx} y1="5" x2={cx} y2="25" stroke="#7dd3fc" strokeWidth="2" markerEnd="url(#wind-arrow)" />
-        <text x={cx} y="5" fill="#7dd3fc" fontSize="11" textAnchor="middle" fontFamily="Inter, sans-serif" fontWeight="600">VENT</text>
+        <line x1={cx} y1="18" x2={cx} y2="35" stroke="#7dd3fc" strokeWidth="2" markerEnd="url(#wind-arrow)" />
+        <text x={cx} y="15" fill="#7dd3fc" fontSize="11" textAnchor="middle" fontFamily="Inter, sans-serif" fontWeight="600">VENT</text>
 
         {/* Angle markers */}
         {[0, 45, 90, 135, 180, 225, 270, 315].map(angle => {
