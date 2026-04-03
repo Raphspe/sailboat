@@ -45,7 +45,7 @@ const MANEUVERS: Maneuver[] = [
   },
   {
     id: 'port',
-    label: 'Man\u0153uvres de port',
+    label: 'Manoeuvres de port',
     subtitle: 'Harbour',
     description: 'Mouillage, appareillage et accostage.',
     color: '#a78bfa',
@@ -695,7 +695,7 @@ function PortGroup({ active, onSelect }: GroupProps) {
         textAnchor="middle"
         opacity={opacity}
       >
-        Man\u0153uvres de port
+        Manoeuvres de port
       </text>
     </motion.g>
   )
