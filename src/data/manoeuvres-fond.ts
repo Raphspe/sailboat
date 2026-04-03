@@ -29,7 +29,7 @@ export const manoeuvresFondEntries: LexiconEntry[] = [
     id: 'prise-de-ris',
     term: 'Prise de ris',
     aliases: ['Ariser', 'Prendre un ris'],
-    diagramPartId: 'mnv-virement',
+    diagramPartId: 'mnv-incident',
     definition:
       "Manoeuvre de réduction de la surface de la grand-voile quand le vent forcit. On abaisse partiellement la voile en choquant la drisse, puis on fixe la nouvelle bordure à la bôme à l'aide des bosses de ris (cordages passant par les oeillets de ris de la voile). La plupart des voiliers de croisière ont 2 ou 3 niveaux de ris. Le ris 1 est une réduction légère, le ris 3 réduit fortement la surface.",
     shortDefinition: 'Réduire la surface de la grand-voile quand le vent forcit.',
@@ -41,7 +41,7 @@ export const manoeuvresFondEntries: LexiconEntry[] = [
     id: 'affaler',
     term: 'Affaler',
     aliases: ['Amener'],
-    diagramPartId: 'mnv-virement',
+    diagramPartId: 'mnv-voiles',
     definition:
       "Descendre une voile en relâchant la drisse. On affale la grand-voile en la laissant glisser le long du mât, et le génois en le déroulant sur l'enrouleur ou en le laissant descendre le long de l'étai. L'affalage doit être contrôlé : la voile doit être guidée pour ne pas tomber à l'eau ou s'envoler. On affale les voiles au mouillage, en fin de navigation, ou pour réduire la voilure.",
     shortDefinition: 'Descendre une voile en relâchant la drisse.',
@@ -52,7 +52,7 @@ export const manoeuvresFondEntries: LexiconEntry[] = [
   {
     id: 'hisser',
     term: 'Hisser',
-    diagramPartId: 'mnv-virement',
+    diagramPartId: 'mnv-voiles',
     definition:
       "Monter une voile le long du mât ou de l'étai en tirant sur la drisse. Hisser est l'opération fondamentale de mise en route à la voile. On hisse généralement la grand-voile en premier (face au vent ou sous moteur au bon plein), puis la voile d'avant. La drisse doit être raidie correctement pour donner la bonne forme à la voile.",
     shortDefinition: 'Monter une voile en tirant sur la drisse.',
@@ -64,7 +64,7 @@ export const manoeuvresFondEntries: LexiconEntry[] = [
     id: 'mouillage',
     term: 'Mouillage',
     aliases: ['Ancrage'],
-    diagramPartId: 'mnv-louvoyer',
+    diagramPartId: 'mnv-port',
     definition:
       "Action de jeter l'ancre pour immobiliser le bateau. Le mouillage exige de choisir un bon fond (sable, vase = bonne tenue ; rocher, algues = mauvaise tenue), de vérifier la profondeur au sondeur, et de filer suffisamment de chaîne (rapport ligne/profondeur de 3 à 5 selon les conditions). Le bateau « évite » ensuite : il tourne autour de son ancre selon le vent et le courant. Il faut vérifier que l'ancre a bien croché en marche arrière.",
     shortDefinition: 'Jeter l\'ancre pour immobiliser le bateau.',
@@ -75,7 +75,7 @@ export const manoeuvresFondEntries: LexiconEntry[] = [
   {
     id: 'appareillage',
     term: 'Appareillage',
-    diagramPartId: 'mnv-louvoyer',
+    diagramPartId: 'mnv-port',
     definition:
       "Ensemble des opérations pour quitter un mouillage ou un quai et prendre la mer. L'appareillage comprend : la vérification du bateau et de l'équipement, le relevage de l'ancre (ou le largage des amarres), le démarrage du moteur si nécessaire, et le hissage des voiles. C'est un moment qui demande de l'organisation et de la coordination entre les équipiers.",
     shortDefinition: 'Quitter le mouillage ou le quai pour prendre la mer.',
@@ -86,7 +86,7 @@ export const manoeuvresFondEntries: LexiconEntry[] = [
   {
     id: 'accostage',
     term: 'Accostage',
-    diagramPartId: 'mnv-louvoyer',
+    diagramPartId: 'mnv-port',
     definition:
       "Manoeuvre d'approche et d'amarrage du bateau à un quai, un ponton ou un autre navire. L'accostage demande de la précision : il faut arriver à vitesse minimale, contre le vent ou le courant si possible, avec les amarres et les pare-battages prêts. On distingue l'accostage en marche avant, en marche arrière, et le « med-mooring » (accostage cul au quai, courant en Méditerranée).",
     shortDefinition: 'S\'approcher et s\'amarrer à un quai ou un ponton.',
@@ -98,7 +98,7 @@ export const manoeuvresFondEntries: LexiconEntry[] = [
     id: 'homme-a-la-mer',
     term: 'Homme à la mer',
     aliases: ['MOB', 'Man overboard'],
-    diagramPartId: 'mnv-empannage',
+    diagramPartId: 'mnv-urgence',
     definition:
       "Situation d'urgence quand une personne tombe à l'eau. La procédure d'urgence est : 1) Crier « Homme à la mer ! » pour alerter tout l'équipage, 2) Lancer immédiatement la bouée couronne, 3) Désigner un veilleur qui ne quitte jamais des yeux la personne à l'eau, 4) Appuyer sur la touche MOB du GPS, 5) Effectuer la manoeuvre de récupération (méthode du bout-au-vent, méthode Quick Stop ou en cercle). Cette manoeuvre doit être pratiquée régulièrement.",
     shortDefinition: 'Urgence : personne tombée à l\'eau, procédure de récupération.',
@@ -109,7 +109,7 @@ export const manoeuvresFondEntries: LexiconEntry[] = [
     id: 'cape',
     term: 'Cape',
     aliases: ['Mettre à la cape', 'Mise à la cape'],
-    diagramPartId: 'mnv-empannage',
+    diagramPartId: 'mnv-urgence',
     definition:
       "Technique de survie par gros temps consistant à immobiliser volontairement le bateau dans une position stable. On borde le foc (ou tourmentin) à contre (du mauvais côté, au vent) et on met la barre dessous (sous le vent). Le foc pousse le bateau à abattre, mais la barre le fait lofer, créant un équilibre : le bateau se stabilise travers au vent, dérivant doucement. Cela permet à l'équipage de se reposer quand les conditions sont trop dures pour naviguer.",
     shortDefinition: 'Position de survie par gros temps : foc à contre, barre dessous.',
@@ -121,7 +121,7 @@ export const manoeuvresFondEntries: LexiconEntry[] = [
     id: 'depart-au-lof',
     term: 'Départ au lof',
     aliases: ['Lof', 'Auloffée'],
-    diagramPartId: 'mnv-empannage',
+    diagramPartId: 'mnv-cap',
     definition:
       "Situation dangereuse où le bateau remonte brusquement et involontairement au vent (il lofe violemment) sous l'effet d'une rafale ou d'un déséquilibre des voiles. Le bateau gîte excessivement et peut se coucher sur le flanc. Le départ au lof survient quand la pression sur les voiles est trop forte pour que le barreur puisse maintenir le cap. Pour le prévenir : réduire la voilure et choquer la grand-voile en cas de rafale.",
     shortDefinition: 'Remontée involontaire et brutale au vent, gîte excessive.',
@@ -144,7 +144,7 @@ export const manoeuvresFondEntries: LexiconEntry[] = [
   {
     id: 'abattre',
     term: 'Abattre',
-    diagramPartId: 'mnv-virement',
+    diagramPartId: 'mnv-cap',
     definition:
       "Tourner le bateau pour éloigner la proue du lit du vent. Abattre, c'est « descendre » vers les allures portantes. Avec une barre franche, on pousse la barre au vent (du côté d'où vient le vent) pour abattre. Avec une barre à roue, on tourne comme un volant dans la direction souhaitée. En abattant, les voiles se gonflent davantage et le bateau accélère. L'inverse est lofer.",
     shortDefinition: 'Éloigner la proue du vent, tourner vers les allures portantes.',
@@ -155,7 +155,7 @@ export const manoeuvresFondEntries: LexiconEntry[] = [
   {
     id: 'lofer',
     term: 'Lofer',
-    diagramPartId: 'mnv-virement',
+    diagramPartId: 'mnv-cap',
     definition:
       "Tourner le bateau pour rapprocher la proue du lit du vent. Lofer, c'est « remonter » vers les allures de près. Avec une barre franche, on tire la barre sous le vent (du côté opposé au vent) pour lofer. Avec une barre à roue, on tourne vers le vent. En lofant, les voiles se vident progressivement et le bateau ralentit si on ne borde pas davantage. Lofer en excès mène au lit du vent et au faseyement. L'inverse est abattre.",
     shortDefinition: 'Rapprocher la proue du vent, remonter vers les allures de près.',
@@ -170,7 +170,7 @@ export const manoeuvresFondEntries: LexiconEntry[] = [
       "Chavirer sur un dériveur léger, c'est-à-dire voir le bateau se coucher sur le flanc ou se retourner complètement. Le dessalage est un événement courant et normal sur les petits dériveurs, surtout par vent fort ou lors de manoeuvres ratées. Le terme vient de l'idée de « prendre un bain » (de l'eau salée). Pour redresser le bateau après un dessalage, l'équipier monte sur la dérive ou la quille et utilise son poids pour ramener le bateau à plat. C'est une compétence de base que tout débutant apprend.",
     shortDefinition: 'Chavirer sur un dériveur léger.',
     category: 'manoeuvres-fondamentales',
-    diagramPartId: 'mnv-empannage',
+    diagramPartId: 'mnv-incident',
     relatedTerms: ['gite', 'cape'],
     tips: 'Courant sur les dériveurs. Pour remonter : redresse le bateau par la quille en s\'appuyant dessus.',
   },
@@ -181,7 +181,7 @@ export const manoeuvresFondEntries: LexiconEntry[] = [
       "Enfoncer la proue dans une vague, c'est-à-dire que l'avant du bateau plonge dans la vague suivante au lieu de passer par-dessus. L'enfournement se produit surtout aux allures portantes par mer forte, quand le bateau descend une vague et que sa proue s'enfonce dans le dos de la vague précédente. C'est une situation dangereuse qui peut mener au sancir (retournement par l'avant). Pour l'éviter, on réduit la vitesse, on recule les poids vers l'arrière et on reste vigilant à la barre.",
     shortDefinition: 'Enfoncer la proue dans une vague, situation dangereuse au portant.',
     category: 'manoeuvres-fondamentales',
-    diagramPartId: 'mnv-louvoyer',
+    diagramPartId: 'mnv-incident',
     relatedTerms: ['proue', 'tangage'],
   },
   {
@@ -191,7 +191,7 @@ export const manoeuvresFondEntries: LexiconEntry[] = [
       "Chavirer par l'avant, c'est-à-dire que le bateau bascule cul par-dessus tête en enfonçant la proue dans l'eau. Le sancir est l'une des situations les plus dangereuses en voile : le bateau se retourne complètement en pivotant autour de sa proue enfoncée. Cela arrive principalement sur les catamarans de sport et les dériveurs rapides qui surfer sur les vagues au portant. Pour l'éviter, il faut reculer les poids, réduire la voilure et barrer avec précision dans les vagues.",
     shortDefinition: 'Chavirer par l\'avant (retournement cul par-dessus tête).',
     category: 'manoeuvres-fondamentales',
-    diagramPartId: 'mnv-empannage',
+    diagramPartId: 'mnv-incident',
     relatedTerms: ['dessaler', 'enfourner'],
   },
   {
@@ -201,7 +201,7 @@ export const manoeuvresFondEntries: LexiconEntry[] = [
       "Perdre le contrôle du bateau de manière soudaine et chaotique. Quand un voilier « part en vrac », il subit un départ au lof incontrôlé, un empannage sauvage, ou une combinaison des deux, souvent accompagnée d'une gîte excessive et de voiles qui battent dans tous les sens. Cette situation survient généralement lors d'une rafale, d'une inattention du barreur ou d'un mauvais réglage de voiles. La solution est de tout choquer (écoutes), se mettre face au vent et reprendre le contrôle calmement.",
     shortDefinition: 'Perdre le contrôle du bateau de manière soudaine et chaotique.',
     category: 'manoeuvres-fondamentales',
-    diagramPartId: 'mnv-empannage',
+    diagramPartId: 'mnv-incident',
     relatedTerms: ['depart-au-lof', 'empannage'],
   },
   {
@@ -211,7 +211,7 @@ export const manoeuvresFondEntries: LexiconEntry[] = [
       "Technique de propulsion consistant à faire avancer le bateau à l'aide d'un seul aviron (rame) placé à la poupe, en effectuant un mouvement en forme de huit dans l'eau. La godille est une méthode ancestrale très efficace en l'absence de moteur et de vent. Elle demande un certain coup de main mais permet de manoeuvrer avec précision dans les ports et les espaces restreints. L'aviron de godille pivote dans une encoche ou un tolet fixé sur le tableau arrière.",
     shortDefinition: 'Technique de propulsion avec un aviron à la poupe en mouvement de huit.',
     category: 'manoeuvres-fondamentales',
-    diagramPartId: 'mnv-louvoyer',
+    diagramPartId: 'mnv-port',
     relatedTerms: ['barre', 'safran'],
   },
   {
@@ -221,7 +221,7 @@ export const manoeuvresFondEntries: LexiconEntry[] = [
       "Mouvement de remontée au vent du bateau, pouvant être volontaire (le barreur décide de lofer) ou involontaire (le bateau part au lof sous l'effet d'une rafale). L'aulofée involontaire est dangereuse car elle s'accompagne d'une gîte soudaine et d'une perte de contrôle. Elle est souvent causée par un excès de puissance dans la grand-voile ou un manque de vigilance du barreur. Pour contrer une aulofée, il faut choquer la grand-voile immédiatement et pousser la barre sous le vent (barre franche) pour abattre.",
     shortDefinition: 'Mouvement de remontée au vent, volontaire ou involontaire.',
     category: 'manoeuvres-fondamentales',
-    diagramPartId: 'mnv-virement',
+    diagramPartId: 'mnv-cap',
     relatedTerms: ['lofer', 'depart-au-lof', 'abattre'],
   },
   {
@@ -231,7 +231,7 @@ export const manoeuvresFondEntries: LexiconEntry[] = [
       "Action de déployer une voile, en particulier le spinnaker ou le gennaker. L'envoi est une manœuvre qui demande de la coordination : on prépare la voile dans son sac ou sa chaussette, on la connecte aux écoutes et au bras, puis on la hisse rapidement à la drisse. Un envoi raté peut conduire à un \"sac de nœuds\" ou à un engagement sous la coque.",
     shortDefinition: "Action de déployer une voile, notamment le spinnaker.",
     category: 'manoeuvres-fondamentales',
-    diagramPartId: 'mnv-virement',
+    diagramPartId: 'mnv-voiles',
     relatedTerms: ['affalage', 'spinnaker', 'gennaker', 'hisser', 'drisse'],
     tips: "Prépare tout avant l'envoi : bras, écoute, drisse clairs et sans tour. L'équipier au piano doit être prêt à choquer en urgence.",
   },
@@ -242,7 +242,7 @@ export const manoeuvresFondEntries: LexiconEntry[] = [
       "Action de descendre et de ranger une voile, en particulier le spinnaker. L'affalage est l'opération inverse de l'envoi. On choque la drisse progressivement pendant qu'un équipier récupère la voile à bord, soit par le pont, soit dans une chaussette à spi. Un affalage mal contrôlé peut mettre la voile à l'eau.",
     shortDefinition: "Action de descendre et ranger une voile, inverse de l'envoi.",
     category: 'manoeuvres-fondamentales',
-    diagramPartId: 'mnv-virement',
+    diagramPartId: 'mnv-voiles',
     relatedTerms: ['envoi', 'affaler', 'spinnaker', 'drisse'],
     tips: "Pour un affalage propre du spi, abats au grand largue, choque le bras, et ramène la voile derrière la grand-voile à l'abri du vent.",
   },

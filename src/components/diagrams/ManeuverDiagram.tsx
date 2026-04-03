@@ -19,25 +19,57 @@ const MANEUVERS: Maneuver[] = [
     id: 'virement',
     label: 'Virement de bord',
     subtitle: 'Tack',
-    description:
-      "Changer d\u2019amure en passant face au vent. La man\u0153uvre la plus courante pour remonter au vent.",
+    description: "Changer d\u2019amure en passant face au vent.",
     color: '#38bdf8',
   },
   {
     id: 'empannage',
     label: 'Empannage',
     subtitle: 'Jibe',
-    description:
-      "Changer d\u2019amure par l\u2019arri\u00e8re. Plus dangereux \u2014 la b\u00f4me passe violemment.",
+    description: "Changer d\u2019amure par l\u2019arri\u00e8re. Attention \u00e0 la b\u00f4me.",
     color: '#f59e0b',
   },
   {
     id: 'louvoyer',
     label: 'Louvoyer',
-    subtitle: 'Beat to windward',
-    description:
-      "Zigzaguer en tirant des bords pour remonter vers un objectif situ\u00e9 dans le vent.",
+    subtitle: 'Beat',
+    description: 'Zigzaguer pour remonter vers le vent.',
     color: '#34d399',
+  },
+  {
+    id: 'voiles',
+    label: 'Gestion des voiles',
+    subtitle: 'Sails',
+    description: 'Hisser, affaler, envoyer et ranger les voiles.',
+    color: '#7dd3fc',
+  },
+  {
+    id: 'port',
+    label: 'Man\u0153uvres de port',
+    subtitle: 'Harbour',
+    description: 'Mouillage, appareillage et accostage.',
+    color: '#a78bfa',
+  },
+  {
+    id: 'urgence',
+    label: 'Urgences',
+    subtitle: 'Emergency',
+    description: 'Homme \u00e0 la mer, mise \u00e0 la cape.',
+    color: '#f43f5e',
+  },
+  {
+    id: 'cap',
+    label: 'Changements de cap',
+    subtitle: 'Steering',
+    description: 'Lofer, abattre, corriger la trajectoire.',
+    color: '#fb923c',
+  },
+  {
+    id: 'incident',
+    label: 'Incidents',
+    subtitle: 'Hazards',
+    description: 'Dessaler, sancir, chavirer, prise de ris.',
+    color: '#94a3b8',
   },
 ]
 
@@ -48,23 +80,27 @@ function Boat({
   rotation,
   highlight = false,
   warn = false,
+  color,
 }: {
   x: number
   y: number
   rotation: number
   highlight?: boolean
   warn?: boolean
+  color?: string
 }) {
+  const fillColor = warn ? '#f59e0b' : '#1e2d4a'
+  const strokeColor = color ?? (highlight ? '#7dd3fc' : '#38bdf8')
   return (
     <g transform={`translate(${x},${y}) rotate(${rotation})`}>
       <path
         d="M 0 -8 Q 3 -5 2.5 5 Q 0 8 -2.5 5 Q -3 -5 0 -8 Z"
-        fill={warn ? '#f59e0b' : '#1e2d4a'}
-        stroke={highlight ? '#7dd3fc' : '#38bdf8'}
+        fill={fillColor}
+        stroke={strokeColor}
         strokeWidth="1"
       />
       {/* mast dot */}
-      <circle cx="0" cy="-2" r="1" fill={highlight ? '#7dd3fc' : '#38bdf8'} />
+      <circle cx="0" cy="-2" r="1" fill={strokeColor} />
       {warn && (
         <circle
           cx="0"
@@ -96,9 +132,9 @@ function WindArrow() {
         </marker>
       </defs>
       <line
-        x1="250"
+        x1="300"
         y1="8"
-        x2="250"
+        x2="300"
         y2="38"
         stroke="#7dd3fc"
         strokeWidth="2"
@@ -106,7 +142,7 @@ function WindArrow() {
         opacity="0.6"
       />
       <text
-        x="250"
+        x="300"
         y="7"
         fill="#7dd3fc"
         fontSize="10"
@@ -121,87 +157,60 @@ function WindArrow() {
   )
 }
 
-/* ── Virement de bord (Tack) group ── upper-left ── */
-function TackGroup({ active, onSelect }: { active: boolean; onSelect: () => void }) {
+/* ── Shared group props ── */
+interface GroupProps {
+  active: boolean
+  onSelect: () => void
+}
+
+/* ── Grid positions (4x2) ── */
+// Row 1: y center ~130, cols at x=85, 235, 385, 535
+// Row 2: y center ~340, cols at x=85, 235, 385, 535
+const COL = [80, 225, 375, 520]
+const ROW = [130, 340]
+
+/* ── 1. Virement de bord (Tack) ── Row 1, Col 0 ── */
+function TackGroup({ active, onSelect }: GroupProps) {
+  const cx = COL[0]
+  const cy = ROW[0]
   const opacity = active ? 1 : 0.45
   return (
     <motion.g
       className="cursor-pointer"
       onClick={onSelect}
-      whileHover={{ scale: 1.04 }}
-      style={{ transformOrigin: '140px 130px' }}
+      whileHover={{ scale: 1.06 }}
+      style={{ transformOrigin: `${cx}px ${cy}px` }}
     >
-      {/* Glow background when active */}
       {active && (
         <motion.circle
-          cx="140"
-          cy="130"
-          r="72"
+          cx={cx}
+          cy={cy}
+          r="60"
           fill="#38bdf8"
           fillOpacity="0.06"
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
         />
       )}
-
-      {/* curved path arc showing the tack */}
+      {/* curved arc */}
       <path
-        d="M 85 175 Q 90 100 140 75 Q 190 100 195 175"
+        d={`M ${cx - 40} ${cy + 35} Q ${cx - 35} ${cy - 20} ${cx} ${cy - 40} Q ${cx + 35} ${cy - 20} ${cx + 40} ${cy + 35}`}
         fill="none"
         stroke="#38bdf8"
         strokeWidth="1.2"
         strokeDasharray="4 3"
         opacity={opacity * 0.6}
       />
-
-      {/* directional arrow on the arc */}
-      <defs>
-        <marker
-          id="mnv-tack-arr"
-          markerWidth="6"
-          markerHeight="5"
-          refX="6"
-          refY="2.5"
-          orient="auto"
-        >
-          <polygon points="0 0, 6 2.5, 0 5" fill="#38bdf8" fillOpacity={opacity} />
-        </marker>
-      </defs>
-      <path
-        d="M 100 155 Q 110 110 140 90"
-        fill="none"
-        stroke="#38bdf8"
-        strokeWidth="1"
-        markerEnd="url(#mnv-tack-arr)"
-        opacity={opacity * 0.5}
-      />
-
       {/* 3 boat positions */}
-      {/* Port tack — going upper-left */}
-      <Boat x={90} y={170} rotation={-40} highlight={active} />
-      {/* Head to wind — nose straight up */}
-      <Boat x={140} y={80} rotation={0} highlight={active} />
-      {/* Starboard tack — going upper-right */}
-      <Boat x={190} y={170} rotation={40} highlight={active} />
-
-      {/* Wind indicator arrow (small, pointing down into the arc) */}
-      <line
-        x1="140"
-        y1="52"
-        x2="140"
-        y2="66"
-        stroke="#7dd3fc"
-        strokeWidth="1"
-        opacity={opacity * 0.5}
-        markerEnd="url(#mnv-wind-arrow)"
-      />
-
+      <Boat x={cx - 38} y={cy + 30} rotation={-40} highlight={active} color="#38bdf8" />
+      <Boat x={cx} y={cy - 35} rotation={0} highlight={active} color="#38bdf8" />
+      <Boat x={cx + 38} y={cy + 30} rotation={40} highlight={active} color="#38bdf8" />
       {/* Label */}
       <text
-        x="140"
-        y="200"
+        x={cx}
+        y={cy + 55}
         fill={active ? '#7dd3fc' : '#93c5fd'}
-        fontSize="9"
+        fontSize="8"
         fontFamily="Inter, sans-serif"
         fontWeight={active ? '600' : '400'}
         textAnchor="middle"
@@ -213,87 +222,57 @@ function TackGroup({ active, onSelect }: { active: boolean; onSelect: () => void
   )
 }
 
-/* ── Empannage (Jibe) group ── upper-right ── */
-function JibeGroup({ active, onSelect }: { active: boolean; onSelect: () => void }) {
+/* ── 2. Empannage (Jibe) ── Row 1, Col 1 ── */
+function JibeGroup({ active, onSelect }: GroupProps) {
+  const cx = COL[1]
+  const cy = ROW[0]
   const opacity = active ? 1 : 0.45
   return (
     <motion.g
       className="cursor-pointer"
       onClick={onSelect}
-      whileHover={{ scale: 1.04 }}
-      style={{ transformOrigin: '360px 130px' }}
+      whileHover={{ scale: 1.06 }}
+      style={{ transformOrigin: `${cx}px ${cy}px` }}
     >
       {active && (
         <motion.circle
-          cx="360"
-          cy="130"
-          r="72"
+          cx={cx}
+          cy={cy}
+          r="60"
           fill="#f59e0b"
           fillOpacity="0.06"
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
         />
       )}
-
-      {/* curved path arc (inverted — boats go downwind, arc opens upward) */}
+      {/* inverted arc (boats go downwind) */}
       <path
-        d="M 305 85 Q 310 160 360 185 Q 410 160 415 85"
+        d={`M ${cx - 40} ${cy - 35} Q ${cx - 35} ${cy + 20} ${cx} ${cy + 40} Q ${cx + 35} ${cy + 20} ${cx + 40} ${cy - 35}`}
         fill="none"
         stroke="#f59e0b"
         strokeWidth="1.2"
         strokeDasharray="4 3"
         opacity={opacity * 0.6}
       />
-
-      {/* directional arrow */}
-      <defs>
-        <marker
-          id="mnv-jibe-arr"
-          markerWidth="6"
-          markerHeight="5"
-          refX="6"
-          refY="2.5"
-          orient="auto"
-        >
-          <polygon points="0 0, 6 2.5, 0 5" fill="#f59e0b" fillOpacity={opacity} />
-        </marker>
-      </defs>
-      <path
-        d="M 320 105 Q 330 150 360 170"
-        fill="none"
-        stroke="#f59e0b"
-        strokeWidth="1"
-        markerEnd="url(#mnv-jibe-arr)"
-        opacity={opacity * 0.5}
-      />
-
-      {/* 3 boat positions (downwind — boats pointing away from wind) */}
-      {/* Port gybe */}
-      <Boat x={310} y={90} rotation={220} highlight={active} />
-      {/* Dead downwind */}
-      <Boat x={360} y={180} rotation={180} highlight={active} warn />
-      {/* Starboard gybe */}
-      <Boat x={410} y={90} rotation={140} highlight={active} />
-
-      {/* Warning indicator on the transition boat */}
+      <Boat x={cx - 38} y={cy - 30} rotation={220} highlight={active} color="#f59e0b" />
+      <Boat x={cx} y={cy + 35} rotation={180} highlight={active} warn color="#f59e0b" />
+      <Boat x={cx + 38} y={cy - 30} rotation={140} highlight={active} color="#f59e0b" />
       {active && (
         <motion.text
-          x="378"
-          y="178"
-          fontSize="12"
+          x={cx + 14}
+          y={cy + 34}
+          fontSize="11"
           animate={{ opacity: [0.6, 1, 0.6] }}
           transition={{ duration: 1.5, repeat: Infinity }}
         >
           {'\u26A0\uFE0F'}
         </motion.text>
       )}
-
-      {/* Label */}
       <text
-        x="360"
-        y="210"
+        x={cx}
+        y={cy + 55}
         fill={active ? '#fbbf24' : '#fcd34d'}
-        fontSize="9"
+        fontSize="8"
         fontFamily="Inter, sans-serif"
         fontWeight={active ? '600' : '400'}
         textAnchor="middle"
@@ -305,34 +284,139 @@ function JibeGroup({ active, onSelect }: { active: boolean; onSelect: () => void
   )
 }
 
-/* ── Louvoyer (Beating) group ── bottom area ── */
-function LouvoyerGroup({
-  active,
-  onSelect,
-}: {
-  active: boolean
-  onSelect: () => void
-}) {
+/* ── 3. Cap (Lofer/Abattre) ── Row 1, Col 2 ── */
+function CapGroup({ active, onSelect }: GroupProps) {
+  const cx = COL[2]
+  const cy = ROW[0]
+  const opacity = active ? 1 : 0.45
+  return (
+    <motion.g
+      className="cursor-pointer"
+      onClick={onSelect}
+      whileHover={{ scale: 1.06 }}
+      style={{ transformOrigin: `${cx}px ${cy}px` }}
+    >
+      {active && (
+        <motion.circle
+          cx={cx}
+          cy={cy}
+          r="60"
+          fill="#fb923c"
+          fillOpacity="0.06"
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+        />
+      )}
+      {/* Central boat */}
+      <Boat x={cx} y={cy} rotation={0} highlight={active} color="#fb923c" />
+
+      {/* Lofer arrow (curved toward wind / left) */}
+      <defs>
+        <marker
+          id="mnv-cap-arr-l"
+          markerWidth="6"
+          markerHeight="5"
+          refX="6"
+          refY="2.5"
+          orient="auto"
+        >
+          <polygon points="0 0, 6 2.5, 0 5" fill="#fb923c" fillOpacity={opacity} />
+        </marker>
+        <marker
+          id="mnv-cap-arr-r"
+          markerWidth="6"
+          markerHeight="5"
+          refX="6"
+          refY="2.5"
+          orient="auto"
+        >
+          <polygon points="0 0, 6 2.5, 0 5" fill="#fb923c" fillOpacity={opacity} />
+        </marker>
+      </defs>
+      {/* Lofer (toward wind) - curves left/up */}
+      <path
+        d={`M ${cx - 5} ${cy - 14} Q ${cx - 30} ${cy - 30} ${cx - 35} ${cy - 10}`}
+        fill="none"
+        stroke="#fb923c"
+        strokeWidth="1.2"
+        markerEnd="url(#mnv-cap-arr-l)"
+        opacity={opacity * 0.8}
+      />
+      <text
+        x={cx - 42}
+        y={cy - 18}
+        fill="#fb923c"
+        fontSize="7"
+        fontFamily="Inter, sans-serif"
+        textAnchor="middle"
+        opacity={opacity * 0.8}
+      >
+        Lofer
+      </text>
+
+      {/* Abattre (away from wind) - curves right/down */}
+      <path
+        d={`M ${cx + 5} ${cy + 14} Q ${cx + 30} ${cy + 30} ${cx + 35} ${cy + 10}`}
+        fill="none"
+        stroke="#fb923c"
+        strokeWidth="1.2"
+        markerEnd="url(#mnv-cap-arr-r)"
+        opacity={opacity * 0.8}
+      />
+      <text
+        x={cx + 44}
+        y={cy + 28}
+        fill="#fb923c"
+        fontSize="7"
+        fontFamily="Inter, sans-serif"
+        textAnchor="middle"
+        opacity={opacity * 0.8}
+      >
+        Abattre
+      </text>
+
+      {/* Wind hint arrow */}
+      <line
+        x1={cx}
+        y1={cy - 48}
+        x2={cx}
+        y2={cy - 36}
+        stroke="#7dd3fc"
+        strokeWidth="1"
+        opacity={opacity * 0.4}
+        markerEnd="url(#mnv-wind-arrow)"
+      />
+      <text
+        x={cx}
+        y={cy + 55}
+        fill={active ? '#fdba74' : '#fb923c'}
+        fontSize="8"
+        fontFamily="Inter, sans-serif"
+        fontWeight={active ? '600' : '400'}
+        textAnchor="middle"
+        opacity={opacity}
+      >
+        Changements de cap
+      </text>
+    </motion.g>
+  )
+}
+
+/* ── 4. Louvoyer (Beat) ── Row 1, Col 3 ── */
+function LouvoyerGroup({ active, onSelect }: GroupProps) {
+  const cx = COL[3]
+  const cy = ROW[0]
   const opacity = active ? 1 : 0.45
 
-  /* zigzag waypoints (bottom to top, heading upwind) */
   const points = [
-    { x: 250, y: 470 },
-    { x: 170, y: 410 },
-    { x: 310, y: 350 },
-    { x: 190, y: 290 },
-    { x: 330, y: 240 },
-    { x: 250, y: 260 },
+    { x: cx, y: cy + 42 },
+    { x: cx - 30, y: cy + 14 },
+    { x: cx + 25, y: cy - 10 },
+    { x: cx - 10, y: cy - 36 },
   ]
-
-  /* build polyline */
   const polyline = points.map(p => `${p.x},${p.y}`).join(' ')
 
-  /* heading angle between two points (0 = up) */
-  function angleBetween(
-    a: { x: number; y: number },
-    b: { x: number; y: number },
-  ) {
+  function angleBetween(a: { x: number; y: number }, b: { x: number; y: number }) {
     return (Math.atan2(b.y - a.y, b.x - a.x) * 180) / Math.PI + 90
   }
 
@@ -340,23 +424,20 @@ function LouvoyerGroup({
     <motion.g
       className="cursor-pointer"
       onClick={onSelect}
-      whileHover={{ scale: 1.03 }}
-      style={{ transformOrigin: '250px 360px' }}
+      whileHover={{ scale: 1.06 }}
+      style={{ transformOrigin: `${cx}px ${cy}px` }}
     >
       {active && (
-        <motion.ellipse
-          cx="250"
-          cy="360"
-          rx="110"
-          ry="120"
+        <motion.circle
+          cx={cx}
+          cy={cy}
+          r="60"
           fill="#34d399"
-          fillOpacity="0.04"
+          fillOpacity="0.06"
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
         />
       )}
-
-      {/* zigzag path */}
       <polyline
         points={polyline}
         fill="none"
@@ -365,55 +446,428 @@ function LouvoyerGroup({
         strokeDasharray="4 3"
         opacity={opacity * 0.5}
       />
-
-      {/* small boats at each waypoint */}
       {points.slice(0, -1).map((p, i) => {
         const next = points[i + 1]
         const angle = angleBetween(p, next)
-        return <Boat key={i} x={p.x} y={p.y} rotation={angle} highlight={active} />
+        return <Boat key={i} x={p.x} y={p.y} rotation={angle} highlight={active} color="#34d399" />
       })}
-
-      {/* destination marker (crosshair) */}
+      {/* destination crosshair */}
       <g opacity={opacity}>
         <circle
           cx={points[points.length - 1].x}
-          cy={points[points.length - 1].y - 10}
-          r="5"
+          cy={points[points.length - 1].y}
+          r="4"
           fill="none"
           stroke="#34d399"
           strokeWidth="1"
           strokeDasharray="2 2"
         />
-        <line
-          x1={points[points.length - 1].x}
-          y1={points[points.length - 1].y - 16}
-          x2={points[points.length - 1].x}
-          y2={points[points.length - 1].y - 4}
-          stroke="#34d399"
-          strokeWidth="1"
-        />
-        <line
-          x1={points[points.length - 1].x - 6}
-          y1={points[points.length - 1].y - 10}
-          x2={points[points.length - 1].x + 6}
-          y2={points[points.length - 1].y - 10}
-          stroke="#34d399"
-          strokeWidth="1"
-        />
       </g>
-
-      {/* Label */}
       <text
-        x="250"
-        y="490"
+        x={cx}
+        y={cy + 55}
         fill={active ? '#6ee7b7' : '#a7f3d0'}
-        fontSize="9"
+        fontSize="8"
         fontFamily="Inter, sans-serif"
         fontWeight={active ? '600' : '400'}
         textAnchor="middle"
         opacity={opacity}
       >
         Louvoyer
+      </text>
+    </motion.g>
+  )
+}
+
+/* ── 5. Voiles (Sails up/down) ── Row 2, Col 0 ── */
+function VoilesGroup({ active, onSelect }: GroupProps) {
+  const cx = COL[0]
+  const cy = ROW[1]
+  const opacity = active ? 1 : 0.45
+  return (
+    <motion.g
+      className="cursor-pointer"
+      onClick={onSelect}
+      whileHover={{ scale: 1.06 }}
+      style={{ transformOrigin: `${cx}px ${cy}px` }}
+    >
+      {active && (
+        <motion.circle
+          cx={cx}
+          cy={cy}
+          r="60"
+          fill="#7dd3fc"
+          fillOpacity="0.06"
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+        />
+      )}
+      {/* Boat hull (centered) */}
+      <Boat x={cx} y={cy + 5} rotation={0} highlight={active} color="#7dd3fc" />
+
+      {/* Sail shape (triangular, to the left of mast) */}
+      <path
+        d={`M ${cx} ${cy - 10} L ${cx - 14} ${cy + 2} L ${cx} ${cy + 2} Z`}
+        fill="#7dd3fc"
+        fillOpacity={opacity * 0.25}
+        stroke="#7dd3fc"
+        strokeWidth="0.8"
+        opacity={opacity}
+      />
+
+      {/* Arrow UP (hisser) */}
+      <defs>
+        <marker
+          id="mnv-voile-up"
+          markerWidth="5"
+          markerHeight="5"
+          refX="2.5"
+          refY="5"
+          orient="auto"
+        >
+          <polygon points="0 5, 2.5 0, 5 5" fill="#7dd3fc" fillOpacity={opacity} />
+        </marker>
+        <marker
+          id="mnv-voile-down"
+          markerWidth="5"
+          markerHeight="5"
+          refX="2.5"
+          refY="0"
+          orient="auto"
+        >
+          <polygon points="0 0, 2.5 5, 5 0" fill="#7dd3fc" fillOpacity={opacity} />
+        </marker>
+      </defs>
+      {/* Up arrow */}
+      <line
+        x1={cx - 25}
+        y1={cy + 10}
+        x2={cx - 25}
+        y2={cy - 25}
+        stroke="#7dd3fc"
+        strokeWidth="1.5"
+        markerEnd="url(#mnv-voile-up)"
+        opacity={opacity * 0.8}
+      />
+      <text
+        x={cx - 25}
+        y={cy + 20}
+        fill="#7dd3fc"
+        fontSize="6"
+        fontFamily="Inter, sans-serif"
+        textAnchor="middle"
+        opacity={opacity * 0.7}
+      >
+        Hisser
+      </text>
+
+      {/* Down arrow */}
+      <line
+        x1={cx + 25}
+        y1={cy - 25}
+        x2={cx + 25}
+        y2={cy + 10}
+        stroke="#7dd3fc"
+        strokeWidth="1.5"
+        markerEnd="url(#mnv-voile-down)"
+        opacity={opacity * 0.8}
+      />
+      <text
+        x={cx + 25}
+        y={cy + 20}
+        fill="#7dd3fc"
+        fontSize="6"
+        fontFamily="Inter, sans-serif"
+        textAnchor="middle"
+        opacity={opacity * 0.7}
+      >
+        Affaler
+      </text>
+
+      <text
+        x={cx}
+        y={cy + 55}
+        fill={active ? '#bae6fd' : '#7dd3fc'}
+        fontSize="8"
+        fontFamily="Inter, sans-serif"
+        fontWeight={active ? '600' : '400'}
+        textAnchor="middle"
+        opacity={opacity}
+      >
+        Gestion des voiles
+      </text>
+    </motion.g>
+  )
+}
+
+/* ── 6. Port (Harbour manoeuvres) ── Row 2, Col 1 ── */
+function PortGroup({ active, onSelect }: GroupProps) {
+  const cx = COL[1]
+  const cy = ROW[1]
+  const opacity = active ? 1 : 0.45
+  return (
+    <motion.g
+      className="cursor-pointer"
+      onClick={onSelect}
+      whileHover={{ scale: 1.06 }}
+      style={{ transformOrigin: `${cx}px ${cy}px` }}
+    >
+      {active && (
+        <motion.circle
+          cx={cx}
+          cy={cy}
+          r="60"
+          fill="#a78bfa"
+          fillOpacity="0.06"
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+        />
+      )}
+      {/* Dock / quay line */}
+      <line
+        x1={cx + 20}
+        y1={cy - 35}
+        x2={cx + 20}
+        y2={cy + 25}
+        stroke="#a78bfa"
+        strokeWidth="2.5"
+        opacity={opacity * 0.7}
+        strokeLinecap="round"
+      />
+      {/* Dock bumpers */}
+      {[-25, -10, 5, 20].map((dy, i) => (
+        <line
+          key={i}
+          x1={cx + 20}
+          y1={cy + dy}
+          x2={cx + 26}
+          y2={cy + dy + 5}
+          stroke="#a78bfa"
+          strokeWidth="1"
+          opacity={opacity * 0.5}
+        />
+      ))}
+
+      {/* Boat approaching dock */}
+      <Boat x={cx - 10} y={cy - 5} rotation={90} highlight={active} color="#a78bfa" />
+
+      {/* Dashed approach path */}
+      <path
+        d={`M ${cx - 30} ${cy + 15} Q ${cx - 20} ${cy + 5} ${cx - 10} ${cy - 5}`}
+        fill="none"
+        stroke="#a78bfa"
+        strokeWidth="1"
+        strokeDasharray="3 3"
+        opacity={opacity * 0.5}
+      />
+
+      {/* Anchor symbol */}
+      <g transform={`translate(${cx - 30},${cy - 25})`} opacity={opacity * 0.7}>
+        {/* Ring */}
+        <circle cx="0" cy="-6" r="3" fill="none" stroke="#a78bfa" strokeWidth="1" />
+        {/* Shank */}
+        <line x1="0" y1="-3" x2="0" y2="8" stroke="#a78bfa" strokeWidth="1" />
+        {/* Arms */}
+        <path d="M -5 6 Q 0 10 5 6" fill="none" stroke="#a78bfa" strokeWidth="1" />
+        {/* Crossbar */}
+        <line x1="-4" y1="1" x2="4" y2="1" stroke="#a78bfa" strokeWidth="1" />
+      </g>
+
+      <text
+        x={cx}
+        y={cy + 55}
+        fill={active ? '#c4b5fd' : '#a78bfa'}
+        fontSize="8"
+        fontFamily="Inter, sans-serif"
+        fontWeight={active ? '600' : '400'}
+        textAnchor="middle"
+        opacity={opacity}
+      >
+        Man\u0153uvres de port
+      </text>
+    </motion.g>
+  )
+}
+
+/* ── 7. Urgence (Emergency) ── Row 2, Col 2 ── */
+function UrgenceGroup({ active, onSelect }: GroupProps) {
+  const cx = COL[2]
+  const cy = ROW[1]
+  const opacity = active ? 1 : 0.45
+  return (
+    <motion.g
+      className="cursor-pointer"
+      onClick={onSelect}
+      whileHover={{ scale: 1.06 }}
+      style={{ transformOrigin: `${cx}px ${cy}px` }}
+    >
+      {active && (
+        <motion.circle
+          cx={cx}
+          cy={cy}
+          r="60"
+          fill="#f43f5e"
+          fillOpacity="0.06"
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+        />
+      )}
+      {/* Boat */}
+      <Boat x={cx - 15} y={cy - 10} rotation={-20} highlight={active} color="#f43f5e" />
+
+      {/* Person in water icon */}
+      <g transform={`translate(${cx + 18},${cy + 5})`} opacity={opacity}>
+        {/* Head */}
+        <circle cx="0" cy="-4" r="3.5" fill="none" stroke="#f43f5e" strokeWidth="1.2" />
+        {/* Wavy water lines */}
+        <path
+          d="M -10 2 Q -6 -1 -2 2 Q 2 5 6 2 Q 10 -1 14 2"
+          fill="none"
+          stroke="#f43f5e"
+          strokeWidth="1"
+          opacity="0.7"
+        />
+        <path
+          d="M -10 6 Q -6 3 -2 6 Q 2 9 6 6 Q 10 3 14 6"
+          fill="none"
+          stroke="#f43f5e"
+          strokeWidth="0.8"
+          opacity="0.4"
+        />
+        {/* Arms up */}
+        <line x1="-3" y1="0" x2="-6" y2="-5" stroke="#f43f5e" strokeWidth="1" />
+        <line x1="3" y1="0" x2="6" y2="-5" stroke="#f43f5e" strokeWidth="1" />
+      </g>
+
+      {/* Circular rescue arrow */}
+      <defs>
+        <marker
+          id="mnv-rescue-arr"
+          markerWidth="5"
+          markerHeight="4"
+          refX="5"
+          refY="2"
+          orient="auto"
+        >
+          <polygon points="0 0, 5 2, 0 4" fill="#f43f5e" fillOpacity={opacity} />
+        </marker>
+      </defs>
+      <path
+        d={`M ${cx + 5} ${cy - 30} A 28 28 0 1 1 ${cx - 30} ${cy + 10}`}
+        fill="none"
+        stroke="#f43f5e"
+        strokeWidth="1"
+        strokeDasharray="4 3"
+        markerEnd="url(#mnv-rescue-arr)"
+        opacity={opacity * 0.6}
+      />
+
+      <text
+        x={cx}
+        y={cy + 55}
+        fill={active ? '#fb7185' : '#f43f5e'}
+        fontSize="8"
+        fontFamily="Inter, sans-serif"
+        fontWeight={active ? '600' : '400'}
+        textAnchor="middle"
+        opacity={opacity}
+      >
+        Urgences
+      </text>
+    </motion.g>
+  )
+}
+
+/* ── 8. Incident (Hazards) ── Row 2, Col 3 ── */
+function IncidentGroup({ active, onSelect }: GroupProps) {
+  const cx = COL[3]
+  const cy = ROW[1]
+  const opacity = active ? 1 : 0.45
+  return (
+    <motion.g
+      className="cursor-pointer"
+      onClick={onSelect}
+      whileHover={{ scale: 1.06 }}
+      style={{ transformOrigin: `${cx}px ${cy}px` }}
+    >
+      {active && (
+        <motion.circle
+          cx={cx}
+          cy={cy}
+          r="60"
+          fill="#94a3b8"
+          fillOpacity="0.06"
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+        />
+      )}
+      {/* Tilted/capsized boat silhouette */}
+      <g transform={`translate(${cx},${cy - 5}) rotate(55)`}>
+        <path
+          d="M 0 -12 Q 4.5 -7.5 3.75 7.5 Q 0 12 -3.75 7.5 Q -4.5 -7.5 0 -12 Z"
+          fill="#1e2d4a"
+          stroke="#94a3b8"
+          strokeWidth="1.2"
+          opacity={opacity}
+        />
+        <circle cx="0" cy="-3" r="1.2" fill="#94a3b8" opacity={opacity} />
+      </g>
+
+      {/* Water surface line */}
+      <path
+        d={`M ${cx - 30} ${cy + 10} Q ${cx - 18} ${cy + 6} ${cx - 6} ${cy + 10} Q ${cx + 6} ${cy + 14} ${cx + 18} ${cy + 10} Q ${cx + 30} ${cy + 6} ${cx + 38} ${cy + 10}`}
+        fill="none"
+        stroke="#94a3b8"
+        strokeWidth="0.8"
+        opacity={opacity * 0.5}
+      />
+      <path
+        d={`M ${cx - 30} ${cy + 16} Q ${cx - 18} ${cy + 12} ${cx - 6} ${cy + 16} Q ${cx + 6} ${cy + 20} ${cx + 18} ${cy + 16} Q ${cx + 30} ${cy + 12} ${cx + 38} ${cy + 16}`}
+        fill="none"
+        stroke="#94a3b8"
+        strokeWidth="0.6"
+        opacity={opacity * 0.3}
+      />
+
+      {/* Splash/danger marks */}
+      <g opacity={opacity * 0.5}>
+        <line
+          x1={cx + 16}
+          y1={cy - 22}
+          x2={cx + 20}
+          y2={cy - 28}
+          stroke="#94a3b8"
+          strokeWidth="1"
+        />
+        <line
+          x1={cx + 22}
+          y1={cy - 18}
+          x2={cx + 28}
+          y2={cy - 22}
+          stroke="#94a3b8"
+          strokeWidth="1"
+        />
+        <line
+          x1={cx + 10}
+          y1={cy - 26}
+          x2={cx + 12}
+          y2={cy - 32}
+          stroke="#94a3b8"
+          strokeWidth="1"
+        />
+      </g>
+
+      <text
+        x={cx}
+        y={cy + 55}
+        fill={active ? '#cbd5e1' : '#94a3b8'}
+        fontSize="8"
+        fontFamily="Inter, sans-serif"
+        fontWeight={active ? '600' : '400'}
+        textAnchor="middle"
+        opacity={opacity}
+      >
+        Incidents
       </text>
     </motion.g>
   )
@@ -437,31 +891,17 @@ export default function ManeuverDiagram({ onManeuverSelect, selectedId }: Maneuv
   }
 
   return (
-    <div className="relative w-full max-w-lg mx-auto">
+    <div className="relative w-full max-w-2xl mx-auto">
       <motion.svg
-        viewBox="0 0 500 500"
+        viewBox="0 0 600 500"
         className="w-full h-auto"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
       >
-        {/* Glow filters */}
+        {/* Glow filter */}
         <defs>
-          <filter id="mnv-glow-blue" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-          <filter id="mnv-glow-amber" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-          <filter id="mnv-glow-green" x="-50%" y="-50%" width="200%" height="200%">
+          <filter id="mnv-glow" x="-50%" y="-50%" width="200%" height="200%">
             <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
             <feMerge>
               <feMergeNode in="blur" />
@@ -473,30 +913,28 @@ export default function ManeuverDiagram({ onManeuverSelect, selectedId }: Maneuv
         {/* Wind arrow */}
         <WindArrow />
 
-        {/* Maneuver groups */}
-        <TackGroup
-          active={activeId === 'virement'}
-          onSelect={() => select('virement')}
-        />
-        <JibeGroup
-          active={activeId === 'empannage'}
-          onSelect={() => select('empannage')}
-        />
-        <LouvoyerGroup
-          active={activeId === 'louvoyer'}
-          onSelect={() => select('louvoyer')}
-        />
+        {/* Row 1 */}
+        <TackGroup active={activeId === 'virement'} onSelect={() => select('virement')} />
+        <JibeGroup active={activeId === 'empannage'} onSelect={() => select('empannage')} />
+        <CapGroup active={activeId === 'cap'} onSelect={() => select('cap')} />
+        <LouvoyerGroup active={activeId === 'louvoyer'} onSelect={() => select('louvoyer')} />
 
-        {/* Subtle divider hint */}
+        {/* Subtle row divider */}
         <line
-          x1="250"
-          y1="50"
-          x2="250"
-          y2="220"
+          x1="40"
+          y1="230"
+          x2="560"
+          y2="230"
           stroke="rgba(255,255,255,0.04)"
           strokeWidth="1"
-          strokeDasharray="2 4"
+          strokeDasharray="2 6"
         />
+
+        {/* Row 2 */}
+        <VoilesGroup active={activeId === 'voiles'} onSelect={() => select('voiles')} />
+        <PortGroup active={activeId === 'port'} onSelect={() => select('port')} />
+        <UrgenceGroup active={activeId === 'urgence'} onSelect={() => select('urgence')} />
+        <IncidentGroup active={activeId === 'incident'} onSelect={() => select('incident')} />
       </motion.svg>
 
       {/* Info card */}
@@ -523,6 +961,11 @@ export default function ManeuverDiagram({ onManeuverSelect, selectedId }: Maneuv
               {activeManeuver.id === 'empannage' && (
                 <span className="text-xs bg-amber-500/20 text-amber-400 px-2 py-0.5 rounded-full">
                   Attention
+                </span>
+              )}
+              {activeManeuver.id === 'urgence' && (
+                <span className="text-xs bg-rose-500/20 text-rose-400 px-2 py-0.5 rounded-full">
+                  Urgence
                 </span>
               )}
             </div>
