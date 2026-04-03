@@ -40,13 +40,19 @@ export default function SailboatPart({
 
   return (
     <motion.g
+      key={isSelected ? `${partId}-selected` : partId}
       id={partId}
       className="svg-part"
       onMouseEnter={() => onHover(partId)}
       onMouseLeave={() => onHover(null)}
       onClick={(e) => { e.stopPropagation(); onClick(partId) }}
       style={{ opacity }}
-      animate={isSelected ? selectedGlow : isActive ? hoverGlow : noGlow}
+      animate={isSelected ? 'selected' : isActive ? 'hover' : 'idle'}
+      variants={{
+        selected: { filter: selectedGlow.filter },
+        hover: { filter: hoverGlow.filter },
+        idle: { filter: noGlow.filter },
+      }}
       transition={isSelected ? {
         filter: { duration: 1.2, repeat: Infinity, ease: 'easeInOut' },
       } : {
