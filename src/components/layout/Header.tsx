@@ -30,7 +30,7 @@ export default function Header() {
 
   return (
     <div className="fixed top-0 right-0 left-0 z-50 pointer-events-none">
-      <div className="flex items-start justify-between px-3 pt-3 md:px-5 md:pt-4 **:cursor-pointer">
+      <div className="flex items-start justify-between px-3 pt-3 md:px-5 md:pt-4 **:cursor-pointer" style={{ paddingTop: 'max(0.75rem, env(safe-area-inset-top))' }}>
         {/* Logo — top left */}
         <motion.div
           initial={{ y: -40, opacity: 0 }}

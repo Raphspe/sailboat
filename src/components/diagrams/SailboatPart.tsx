@@ -27,16 +27,23 @@ export default function SailboatPart({
       onMouseEnter={() => onHover(partId)}
       onMouseLeave={() => onHover(null)}
       onClick={(e) => { e.stopPropagation(); onClick(partId) }}
-      style={{
-        opacity,
-        filter: isActive
-          ? 'drop-shadow(0 0 12px rgba(14, 165, 233, 0.8)) drop-shadow(0 0 4px rgba(14, 165, 233, 0.4))'
-          : 'drop-shadow(0 0 0px transparent)',
-        transition: 'opacity 0.3s ease, filter 0.3s ease',
+      style={{ opacity }}
+      animate={isActive ? {
+        filter: [
+          'drop-shadow(0 0 12px rgba(14, 165, 233, 0.8)) drop-shadow(0 0 4px rgba(14, 165, 233, 0.4))',
+          'drop-shadow(0 0 5px rgba(14, 165, 233, 0.25)) drop-shadow(0 0 2px rgba(14, 165, 233, 0.1))',
+          'drop-shadow(0 0 12px rgba(14, 165, 233, 0.8)) drop-shadow(0 0 4px rgba(14, 165, 233, 0.4))',
+        ],
+      } : {
+        filter: 'drop-shadow(0 0 0px transparent)',
+      }}
+      transition={isActive ? {
+        filter: { duration: 1.5, repeat: Infinity, ease: 'easeInOut' },
+      } : {
+        filter: { duration: 0.3 },
       }}
       whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.97 }}
-      transition={{ type: 'spring', stiffness: 400, damping: 25 }}
       role="button"
       aria-label={label}
     >

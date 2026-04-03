@@ -1,6 +1,6 @@
 import { Routes, Route, useLocation } from 'react-router'
 import { AnimatePresence } from 'framer-motion'
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useEffect } from 'react'
 import Header from './components/layout/Header'
 import ThemeToggle from './components/ui/ThemeToggle'
 
@@ -13,6 +13,12 @@ const ComparePage = lazy(() => import('./pages/ComparePage'))
 function App() {
   const location = useLocation()
   const isFullscreen = location.pathname === '/' || location.pathname === '/explorer' || location.pathname === '/compare'
+
+  // Block body scroll on fullscreen pages (landing, explorer)
+  useEffect(() => {
+    document.body.style.overflow = isFullscreen ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [isFullscreen])
 
   return (
     <>

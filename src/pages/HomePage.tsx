@@ -357,7 +357,7 @@ export default function HomePage() {
         </AnimatePresence>
 
         {/* Scrollable content */}
-        <div className={`flex-1 px-5 pb-10 min-h-0 ${panelView === 'categories' ? 'overflow-hidden' : 'overflow-y-auto scrollbar-none lg:scrollbar-default'}`}>
+        <div className={`flex-1 px-5 pb-10 min-h-0 ${panelView === 'categories' ? 'overflow-hidden lg:overflow-hidden overflow-y-auto' : 'overflow-y-auto'} scrollbar-none`}>
           <AnimatePresence mode="wait">
             {/* Search results */}
             {filteredEntries ? (
