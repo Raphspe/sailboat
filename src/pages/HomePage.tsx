@@ -226,7 +226,7 @@ export default function HomePage() {
     >
       {/* === FULL SCREEN: Dynamic Diagram === */}
       <div
-        className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${mobileTab === 'lexicon' ? 'opacity-0 pointer-events-none lg:opacity-100 lg:pointer-events-auto' : ''}`}
+        className={`absolute inset-0 flex items-center justify-center ${mobileTab === 'lexicon' ? 'hidden lg:flex' : ''}`}
         onClick={() => {
           setSelectedEntry(null)
           setSelectedPartFromDiagram(null)
