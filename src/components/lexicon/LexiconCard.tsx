@@ -29,7 +29,7 @@ export default function LexiconCard({ entry, index, onClick }: LexiconCardProps)
           </p>
         )}
 
-        <p className="text-foam-200/70 text-sm leading-relaxed">
+        <p className="text-foam-200/70 text-sm leading-relaxed text-justify">
           {entry.shortDefinition}
         </p>
 

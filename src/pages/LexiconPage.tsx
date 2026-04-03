@@ -62,7 +62,7 @@ export default function LexiconPage() {
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
             placeholder="Rechercher..."
-            className="w-full bg-white/[0.03] border border-white/[0.05] rounded-2xl pl-9 pr-8 py-2.5 text-sm text-foam-100 placeholder-foam-300/20 outline-none focus:border-ocean-500/20 transition-all"
+            className="w-full bg-white/[0.03] border border-white/[0.05] rounded-2xl pl-9 pr-8 py-2.5 text-base text-foam-100 placeholder-foam-300/20 outline-none focus:border-ocean-500/20 transition-all"
           />
           {searchQuery && (
             <button

@@ -93,7 +93,7 @@ export default function LexiconDetail({ entry, onClose, onPrev, onNext, current,
             </p>
           )}
 
-          <p className="text-foam-200 leading-relaxed mb-5 text-[15px]">
+          <p className="text-foam-200 leading-relaxed mb-5 text-[15px] text-justify">
             {entry.definition}
           </p>
 

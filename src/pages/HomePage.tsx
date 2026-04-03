@@ -271,7 +271,7 @@ export default function HomePage() {
                   value={searchQuery}
                   onChange={e => setSearchQuery(e.target.value)}
                   placeholder="Rechercher..."
-                  className="flex-1 bg-transparent text-sm text-foam-100 placeholder-foam-300/20 outline-none min-w-0"
+                  className="flex-1 bg-transparent text-base text-foam-100 placeholder-foam-300/20 outline-none min-w-0"
                 />
                 <button
                   onClick={() => { setSearchOpen(false); setSearchQuery('') }}
