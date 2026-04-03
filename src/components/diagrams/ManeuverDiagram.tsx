@@ -181,6 +181,8 @@ function TackGroup({ active, onSelect }: GroupProps) {
       whileHover={{ scale: 1.06 }}
       style={{ transformOrigin: `${cx}px ${cy}px` }}
     >
+      {/* Invisible hit area */}
+      <rect x={cx - 65} y={cy - 65} width={130} height={130} fill="transparent" className="cursor-pointer" />
       {active && (
         <motion.circle
           cx={cx}
@@ -234,6 +236,8 @@ function JibeGroup({ active, onSelect }: GroupProps) {
       whileHover={{ scale: 1.06 }}
       style={{ transformOrigin: `${cx}px ${cy}px` }}
     >
+      {/* Invisible hit area */}
+      <rect x={cx - 65} y={cy - 65} width={130} height={130} fill="transparent" className="cursor-pointer" />
       {active && (
         <motion.circle
           cx={cx}
@@ -296,6 +300,8 @@ function CapGroup({ active, onSelect }: GroupProps) {
       whileHover={{ scale: 1.06 }}
       style={{ transformOrigin: `${cx}px ${cy}px` }}
     >
+      {/* Invisible hit area */}
+      <rect x={cx - 65} y={cy - 65} width={130} height={130} fill="transparent" className="cursor-pointer" />
       {active && (
         <motion.circle
           cx={cx}
@@ -427,6 +433,8 @@ function LouvoyerGroup({ active, onSelect }: GroupProps) {
       whileHover={{ scale: 1.06 }}
       style={{ transformOrigin: `${cx}px ${cy}px` }}
     >
+      {/* Invisible hit area */}
+      <rect x={cx - 65} y={cy - 65} width={130} height={130} fill="transparent" className="cursor-pointer" />
       {active && (
         <motion.circle
           cx={cx}
@@ -491,6 +499,8 @@ function VoilesGroup({ active, onSelect }: GroupProps) {
       whileHover={{ scale: 1.06 }}
       style={{ transformOrigin: `${cx}px ${cy}px` }}
     >
+      {/* Invisible hit area */}
+      <rect x={cx - 65} y={cy - 65} width={130} height={130} fill="transparent" className="cursor-pointer" />
       {active && (
         <motion.circle
           cx={cx}
@@ -612,6 +622,8 @@ function PortGroup({ active, onSelect }: GroupProps) {
       whileHover={{ scale: 1.06 }}
       style={{ transformOrigin: `${cx}px ${cy}px` }}
     >
+      {/* Invisible hit area */}
+      <rect x={cx - 65} y={cy - 65} width={130} height={130} fill="transparent" className="cursor-pointer" />
       {active && (
         <motion.circle
           cx={cx}
@@ -701,6 +713,8 @@ function UrgenceGroup({ active, onSelect }: GroupProps) {
       whileHover={{ scale: 1.06 }}
       style={{ transformOrigin: `${cx}px ${cy}px` }}
     >
+      {/* Invisible hit area */}
+      <rect x={cx - 65} y={cy - 65} width={130} height={130} fill="transparent" className="cursor-pointer" />
       {active && (
         <motion.circle
           cx={cx}
@@ -790,6 +804,8 @@ function IncidentGroup({ active, onSelect }: GroupProps) {
       whileHover={{ scale: 1.06 }}
       style={{ transformOrigin: `${cx}px ${cy}px` }}
     >
+      {/* Invisible hit area */}
+      <rect x={cx - 65} y={cy - 65} width={130} height={130} fill="transparent" className="cursor-pointer" />
       {active && (
         <motion.circle
           cx={cx}
