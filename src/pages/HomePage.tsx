@@ -101,6 +101,9 @@ export default function HomePage() {
     setSelectedEntry(entry)
     setSelectedPartFromDiagram(null)
     setPanelView('detail')
+    if (!activeCategoryId || entry.category !== activeCategoryId) {
+      setActiveCategoryId(entry.category)
+    }
   }
 
   const goBack = () => {
