@@ -136,6 +136,8 @@ export default function ExpressionsDiagram({ onExpressionSelect, selectedId }: E
       <motion.svg
         viewBox="0 0 500 450"
         className="w-full h-auto"
+        role="img"
+        aria-label="Diagramme interactif des expressions nautiques avec 17 expressions cliquables"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}

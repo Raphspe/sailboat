@@ -4,6 +4,8 @@ import { Wind, Triangle, Ship, Cable, SlidersHorizontal, Compass, RotateCcw, Mes
 import { categories, getAllEntries } from '../data/categories'
 import { useState, useMemo } from 'react'
 import LexiconGrid from '../components/lexicon/LexiconGrid'
+import { useProgress } from '../hooks/useProgress'
+import ProgressBadge from '../components/ui/ProgressBadge'
 
 const ICON_MAP: Record<string, React.ElementType> = {
   Wind, Triangle, Ship, Cable, SlidersHorizontal, Compass, RotateCcw, MessageCircle,
@@ -27,6 +29,7 @@ function normalize(str: string) {
 export default function LexiconPage() {
   const [searchQuery, setSearchQuery] = useState('')
   const allEntries = useMemo(() => getAllEntries(), [])
+  const { learnedByCategory } = useProgress()
 
   const filteredEntries = useMemo(() => {
     if (!searchQuery.trim()) return null
@@ -104,8 +107,9 @@ export default function LexiconPage() {
                 <p className="text-[11px] text-foam-300/30 mb-2 line-clamp-2 leading-relaxed">
                   {cat.subtitle}
                 </p>
-                <div className="flex items-center gap-1 mt-auto">
+                <div className="flex items-center gap-1.5 mt-auto">
                   <span className="text-[10px] text-foam-300/20">{cat.entries.length} termes</span>
+                  <ProgressBadge learned={learnedByCategory(cat.id)} total={cat.entries.length} />
                   <ChevronRight size={10} className="text-foam-300/15 group-hover:text-ocean-400/50 transition-colors" />
                 </div>
               </Link>

@@ -3,6 +3,7 @@ import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 import type { LexiconEntry } from '../../data/types'
 import { useEffect } from 'react'
 import ImagePreview from '../ui/ImagePreview'
+import ShareButton from '../ui/ShareButton'
 import { getAllEntries } from '../../data/categories'
 
 const allEntries = getAllEntries()
@@ -83,9 +84,12 @@ export default function LexiconDetail({ entry, onClose, onPrev, onNext, current,
             </button>
           </div>
 
-          <h2 className="text-2xl font-bold text-ocean-400 mb-1 pr-36" style={{ fontFamily: 'var(--font-display)' }}>
-            {entry.term}
-          </h2>
+          <div className="flex items-start gap-2 pr-36 mb-1">
+            <h2 className="text-2xl font-bold text-ocean-400" style={{ fontFamily: 'var(--font-display)' }}>
+              {entry.term}
+            </h2>
+            <ShareButton entryId={entry.id} className="mt-1.5 shrink-0" />
+          </div>
 
           {entry.aliases && entry.aliases.length > 0 && (
             <p className="text-foam-300/50 text-sm mb-5">

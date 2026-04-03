@@ -117,6 +117,8 @@ export default function NavigationDiagram({ onConceptSelect, selectedId }: Navig
         viewBox="0 0 500 500"
         className="w-full h-full"
         preserveAspectRatio="xMidYMid meet"
+        role="img"
+        aria-label="Diagramme interactif de navigation avec 6 concepts cliquables"
         initial={{ rotate: -10, opacity: 0 }}
         animate={{ rotate: 0, opacity: 1 }}
         transition={{ type: 'spring', stiffness: 60, damping: 14, duration: 1 }}

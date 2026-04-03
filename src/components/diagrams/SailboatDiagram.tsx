@@ -883,6 +883,8 @@ export default function SailboatDiagram({
         viewBox={animatedViewBox as unknown as string}
         className="w-full h-full"
         preserveAspectRatio="xMidYMid meet"
+        role="img"
+        aria-label="Schéma interactif du voilier avec 83 composants cliquables"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, ease: 'easeOut' }}

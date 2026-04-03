@@ -8,6 +8,7 @@ const navLinks = [
   { to: '/', label: 'Accueil' },
   { to: '/explorer', label: 'Explorer' },
   { to: '/lexique', label: 'Lexique' },
+  { to: '/quiz', label: 'Quiz' },
   { to: '/contact', label: 'Contact' },
 ];
 
@@ -53,6 +54,7 @@ export default function Header() {
 
         {/* Nav — centered */}
         <motion.nav
+          aria-label="Navigation principale"
           initial={{ y: -40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
@@ -66,6 +68,7 @@ export default function Header() {
               <Link
                 key={link.to}
                 to={link.to}
+                aria-current={isActive(link.to) ? 'page' : undefined}
                 className={cn(
                   'relative rounded-full px-5 py-2 text-[13px] font-medium transition-all duration-300 select-none outline-none focus:outline-none cursor-pointer',
                   isActive(link.to)

@@ -1,0 +1,29 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#030d1a"/>
+      <stop offset="100%" stop-color="#0a1e3d"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Waves -->
+  <path d="M0 480 Q60 460 120 480 Q180 500 240 480 Q300 460 360 480 Q420 500 480 480 Q540 460 600 480 Q660 500 720 480 Q780 460 840 480 Q900 500 960 480 Q1020 460 1080 480 Q1140 500 1200 480 L1200 630 L0 630 Z" fill="#0ea5e9" opacity="0.08"/>
+  <path d="M0 510 Q80 490 160 510 Q240 530 320 510 Q400 490 480 510 Q560 530 640 510 Q720 490 800 510 Q880 530 960 510 Q1040 490 1120 510 Q1200 530 1200 510 L1200 630 L0 630 Z" fill="#0ea5e9" opacity="0.05"/>
+  <!-- Sailboat icon -->
+  <g transform="translate(600, 340)" opacity="0.9">
+    <!-- Hull -->
+    <path d="M-80 30 Q-60 50 0 50 Q60 50 80 30 L60 30 Q40 45 0 45 Q-40 45 -60 30 Z" fill="#0ea5e9" opacity="0.3"/>
+    <!-- Mast -->
+    <line x1="0" y1="25" x2="0" y2="-120" stroke="#38bdf8" stroke-width="3" stroke-linecap="round"/>
+    <!-- Mainsail -->
+    <path d="M0 -115 L0 20 L55 15 Z" fill="#0ea5e9" opacity="0.2" stroke="#38bdf8" stroke-width="1"/>
+    <!-- Jib -->
+    <path d="M0 -105 L0 10 L-40 15 Z" fill="#0ea5e9" opacity="0.15" stroke="#38bdf8" stroke-width="0.8"/>
+  </g>
+  <!-- Title -->
+  <text x="600" y="200" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="700" fill="#e0f2fe" letter-spacing="8">SAILBOAT</text>
+  <!-- Subtitle -->
+  <text x="600" y="250" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="400" fill="#7dd3fc" opacity="0.7">Lexique interactif de la voile</text>
+  <!-- Stats -->
+  <text x="600" y="540" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="18" fill="#94a3b8" opacity="0.5">172 termes  ·  6 diagrammes  ·  schemas interactifs</text>
+</svg>

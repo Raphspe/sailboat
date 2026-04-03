@@ -12,6 +12,7 @@ const CategoryPage = lazy(() => import('./pages/CategoryPage'))
 const ContactPage = lazy(() => import('./pages/ContactPage'))
 const AdDemoPage = lazy(() => import('./pages/AdDemoPage'))
 const ComparePage = lazy(() => import('./pages/ComparePage'))
+const QuizPage = lazy(() => import('./pages/QuizPage'))
 
 function App() {
   const location = useLocation()
@@ -43,6 +44,7 @@ function App() {
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/ad-demo" element={<AdDemoPage />} />
               <Route path="/compare" element={<ComparePage />} />
+              <Route path="/quiz" element={<QuizPage />} />
             </Routes>
           </AnimatePresence>
         </Suspense>

@@ -77,6 +77,8 @@ export default function SailTrimDiagram({ selectedId }: { selectedId?: string | 
       <motion.svg
         viewBox="0 0 450 450"
         className="w-full h-auto"
+        role="img"
+        aria-label="Diagramme interactif du réglage des voiles avec 4 états de réglage"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
       >

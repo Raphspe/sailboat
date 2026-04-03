@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sailboat.raphspe.com/sitemap.xml

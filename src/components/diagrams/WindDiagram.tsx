@@ -57,6 +57,8 @@ export default function WindDiagram({ selectedId }: { selectedId?: string | null
       <motion.svg
         viewBox="0 0 400 400"
         className="w-full h-auto"
+        role="img"
+        aria-label="Diagramme interactif des allures du voilier avec 13 secteurs de vent"
         initial={{ opacity: 0, rotate: -10 }}
         animate={{ opacity: 1, rotate: 0 }}
         transition={{ duration: 0.6 }}

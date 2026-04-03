@@ -911,6 +911,8 @@ export default function ManeuverDiagram({ onManeuverSelect, selectedId }: Maneuv
       <motion.svg
         viewBox="0 0 600 500"
         className="w-full h-auto"
+        role="img"
+        aria-label="Diagramme interactif des manoeuvres fondamentales de voile"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
