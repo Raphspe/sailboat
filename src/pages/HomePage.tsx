@@ -180,7 +180,6 @@ export default function HomePage() {
         return (
           <SailboatDiagram
             onPartSelect={handleDiagramPartSelect}
-            key={diagramHighlightId || 'none'}
             selectedPartId={diagramHighlightId}
             enableZoom={isDesktop}
             filter="voiles"
@@ -190,7 +189,6 @@ export default function HomePage() {
         return (
           <SailboatDiagram
             onPartSelect={handleDiagramPartSelect}
-            key={diagramHighlightId || 'none'}
             selectedPartId={diagramHighlightId}
             enableZoom={isDesktop}
             filter="cordages"
@@ -200,7 +198,6 @@ export default function HomePage() {
         return (
           <SailboatDiagram
             onPartSelect={handleDiagramPartSelect}
-            key={diagramHighlightId || 'none'}
             selectedPartId={diagramHighlightId}
             enableZoom={isDesktop}
           />
@@ -209,7 +206,6 @@ export default function HomePage() {
         return (
           <SailboatDiagram
             onPartSelect={handleDiagramPartSelect}
-            key={diagramHighlightId || 'none'}
             selectedPartId={diagramHighlightId}
             enableZoom={isDesktop}
           />
@@ -234,7 +230,7 @@ export default function HomePage() {
         }}
       >
         <div className="w-full h-full p-2">
-          <div className="w-full h-full">
+          <div className="w-full h-full" key={diagramHighlightId || 'none'}>
             {renderDiagram()}
           </div>
         </div>
