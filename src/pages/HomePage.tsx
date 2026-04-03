@@ -567,10 +567,11 @@ export default function HomePage() {
 
       {/* === MOBILE TAB BAR === */}
       <div className="fixed bottom-0 left-0 right-0 z-30 lg:hidden">
-        <div className="flex mx-4 mb-4 rounded-2xl overflow-hidden" style={{
+        <div className="flex mx-4 rounded-2xl overflow-hidden" style={{
           background: 'rgba(3, 13, 26, 0.8)',
           backdropFilter: 'blur(20px)',
           border: '1px solid rgba(255,255,255,0.06)',
+          marginBottom: 'max(1rem, env(safe-area-inset-bottom, 1rem))',
         }}>
           <button
             onClick={() => setMobileTab('diagram')}
