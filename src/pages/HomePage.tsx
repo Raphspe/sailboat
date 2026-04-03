@@ -177,6 +177,7 @@ export default function HomePage() {
         return (
           <SailboatDiagram
             onPartSelect={handleDiagramPartSelect}
+            key={diagramHighlightId || 'none'}
             selectedPartId={diagramHighlightId}
             enableZoom={isDesktop}
             filter="voiles"
@@ -186,6 +187,7 @@ export default function HomePage() {
         return (
           <SailboatDiagram
             onPartSelect={handleDiagramPartSelect}
+            key={diagramHighlightId || 'none'}
             selectedPartId={diagramHighlightId}
             enableZoom={isDesktop}
             filter="cordages"
@@ -195,6 +197,7 @@ export default function HomePage() {
         return (
           <SailboatDiagram
             onPartSelect={handleDiagramPartSelect}
+            key={diagramHighlightId || 'none'}
             selectedPartId={diagramHighlightId}
             enableZoom={isDesktop}
           />
@@ -203,6 +206,7 @@ export default function HomePage() {
         return (
           <SailboatDiagram
             onPartSelect={handleDiagramPartSelect}
+            key={diagramHighlightId || 'none'}
             selectedPartId={diagramHighlightId}
             enableZoom={isDesktop}
           />
