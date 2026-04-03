@@ -1,4 +1,5 @@
-import { useState, useMemo, useRef, useEffect } from 'react'
+import { useState, useMemo, useRef, useEffect, useCallback } from 'react'
+import { useSearchParams } from 'react-router'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Wind, Triangle, Ship, Cable, SlidersHorizontal, Compass, RotateCcw, MessageCircle, ChevronRight, ChevronLeft, X, ArrowLeft, Play, Eye, List, Search } from 'lucide-react'
 import SailboatDiagram from '../components/diagrams/SailboatDiagram'
@@ -42,6 +43,7 @@ interface SelectedPart {
 
 export default function HomePage() {
   const isDesktop = useMediaQuery('(min-width: 1024px)')
+  const [searchParams, setSearchParams] = useSearchParams()
   const [panelView, setPanelView] = useState<PanelView>('categories')
   const [activeCategoryId, setActiveCategoryId] = useState<string | null>(null)
   const [selectedEntry, setSelectedEntry] = useState<LexiconEntry | null>(null)
@@ -60,6 +62,21 @@ export default function HomePage() {
     }
   }, [panelView])
   const allEntries = useMemo(() => getAllEntries(), [])
+
+  // Handle ?select= param from LexiconCard "voir" button
+  useEffect(() => {
+    const selectId = searchParams.get('select')
+    if (selectId) {
+      const entry = allEntries.find(e => e.id === selectId)
+      if (entry) {
+        setSelectedEntry(entry)
+        setActiveCategoryId(entry.category)
+        setPanelView('detail')
+        if (!isDesktop) setMobileTab('diagram')
+      }
+      setSearchParams({}, { replace: true })
+    }
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   const activeCategory = activeCategoryId
     ? categories.find(c => c.id === activeCategoryId)

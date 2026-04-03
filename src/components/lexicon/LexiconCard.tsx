@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion'
+import { Eye } from 'lucide-react'
+import { useNavigate } from 'react-router'
 import type { LexiconEntry } from '../../data/types'
 
 interface LexiconCardProps {
@@ -8,6 +10,8 @@ interface LexiconCardProps {
 }
 
 export default function LexiconCard({ entry, index, onClick }: LexiconCardProps) {
+  const navigate = useNavigate()
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 15 }}
@@ -19,9 +23,23 @@ export default function LexiconCard({ entry, index, onClick }: LexiconCardProps)
       whileTap={{ scale: 0.98 }}
     >
       <div>
-        <h3 className="text-base font-medium text-foam-100 group-hover:text-ocean-400 transition-colors duration-200 mb-2.5">
-          {entry.term}
-        </h3>
+        <div className="flex items-start justify-between gap-2 mb-2.5">
+          <h3 className="text-base font-medium text-foam-100 group-hover:text-ocean-400 transition-colors duration-200">
+            {entry.term}
+          </h3>
+          {entry.diagramPartId && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                navigate(`/explorer?select=${entry.id}`)
+              }}
+              className="shrink-0 w-7 h-7 rounded-full bg-white/[0.04] border border-white/[0.06] flex items-center justify-center text-foam-300/30 hover:text-ocean-400 hover:border-ocean-500/20 transition-all opacity-0 group-hover:opacity-100"
+              title="Voir sur le schéma"
+            >
+              <Eye size={12} />
+            </button>
+          )}
+        </div>
 
         {entry.aliases && entry.aliases.length > 0 && (
           <p className="text-foam-300/40 text-xs mb-2">
