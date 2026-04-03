@@ -3,6 +3,15 @@ import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 import type { LexiconEntry } from '../../data/types'
 import { useEffect } from 'react'
 import ImagePreview from '../ui/ImagePreview'
+import { getAllEntries } from '../../data/categories'
+
+const allEntries = getAllEntries()
+
+function formatTermName(id: string): string {
+  const entry = allEntries.find(e => e.id === id) || allEntries.find(e => e.id.includes(id) || id.includes(e.id))
+  if (entry) return entry.term
+  return id.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
+}
 
 interface LexiconDetailProps {
   entry: LexiconEntry
@@ -40,8 +49,7 @@ export default function LexiconDetail({ entry, onClose, onPrev, onNext, current,
         className="relative z-10 w-full max-w-lg"
         onClick={e => e.stopPropagation()}
       >
-        <div className="h-1 bg-gradient-to-r from-ocean-500 via-ocean-400 to-seagreen-400 rounded-t-3xl" />
-        <div className="bg-navy-800/60 backdrop-blur-2xl border border-white/8 rounded-b-3xl rounded-t-none p-8 shadow-2xl shadow-black/30">
+        <div className="bg-navy-800/60 backdrop-blur-2xl border border-white/8 rounded-3xl p-8 shadow-2xl shadow-black/30">
           {/* Top right: nav arrows + close */}
           <div className="absolute top-5 right-5 flex items-center gap-1.5">
             {(onPrev || onNext) && (
@@ -102,9 +110,12 @@ export default function LexiconDetail({ entry, onClose, onPrev, onNext, current,
             <div className="pt-4 border-t border-white/5">
               <p className="text-foam-300/40 text-xs mb-2.5">Termes liés</p>
               <div className="flex flex-wrap gap-2">
-                {entry.relatedTerms.map(term => (
-                  <span key={term} className="text-xs bg-navy-700/60 text-foam-200 px-3 py-1.5 rounded-full border border-white/5">
-                    {term}
+                {[...new Set(entry.relatedTerms.map(t => {
+                  const linked = allEntries.find(e => e.id === t) || allEntries.find(e => e.id.includes(t) || t.includes(e.id))
+                  return linked?.id || t
+                }))].map(t => (
+                  <span key={t} className="text-xs bg-navy-700/60 text-foam-200 px-3 py-1.5 rounded-full border border-white/5">
+                    {formatTermName(t)}
                   </span>
                 ))}
               </div>
