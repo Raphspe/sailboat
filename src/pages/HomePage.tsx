@@ -565,6 +565,11 @@ export default function HomePage() {
         </div>
       </div>
 
+      {/* DEBUG — remove later */}
+      <div className="fixed top-16 left-2 z-50 text-[9px] text-amber-400/70 bg-black/50 px-2 py-1 rounded lg:hidden">
+        {diagramHighlightId || 'none'}
+      </div>
+
       {/* === MOBILE TAB BAR === */}
       <div className="fixed bottom-0 left-0 right-0 z-30 lg:hidden">
         <div className="flex mx-4 rounded-2xl overflow-hidden" style={{
