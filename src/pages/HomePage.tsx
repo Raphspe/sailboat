@@ -167,19 +167,18 @@ export default function HomePage() {
   const renderDiagram = () => {
     switch (activeCategoryId) {
       case 'allures':
-        return centered(<WindDiagram key={`wind-${diagramHighlightId}`} selectedId={diagramHighlightId} />)
+        return centered(<WindDiagram selectedId={diagramHighlightId} />)
       case 'reglage':
-        return centered(<SailTrimDiagram key={`trim-${diagramHighlightId}`} selectedId={diagramHighlightId} />)
+        return centered(<SailTrimDiagram selectedId={diagramHighlightId} />)
       case 'navigation':
-        return centered(<NavigationDiagram key={`nav-${diagramHighlightId}`} selectedId={diagramHighlightId} />)
+        return centered(<NavigationDiagram selectedId={diagramHighlightId} />)
       case 'manoeuvres-fondamentales':
-        return centered(<ManeuverDiagram key={`mnv-${diagramHighlightId}`} selectedId={diagramHighlightId} />)
+        return centered(<ManeuverDiagram selectedId={diagramHighlightId} />)
       case 'expressions':
-        return centered(<ExpressionsDiagram key={`expr-${diagramHighlightId}`} selectedId={diagramHighlightId} />)
+        return centered(<ExpressionsDiagram selectedId={diagramHighlightId} />)
       case 'voiles':
         return (
           <SailboatDiagram
-            key={`boat-${diagramHighlightId}`}
             onPartSelect={handleDiagramPartSelect}
             selectedPartId={diagramHighlightId}
             enableZoom={isDesktop}
@@ -189,7 +188,6 @@ export default function HomePage() {
       case 'manoeuvres':
         return (
           <SailboatDiagram
-            key={`boat-${diagramHighlightId}`}
             onPartSelect={handleDiagramPartSelect}
             selectedPartId={diagramHighlightId}
             enableZoom={isDesktop}
@@ -199,7 +197,6 @@ export default function HomePage() {
       case 'anatomie':
         return (
           <SailboatDiagram
-            key={`boat-${diagramHighlightId}`}
             onPartSelect={handleDiagramPartSelect}
             selectedPartId={diagramHighlightId}
             enableZoom={isDesktop}
@@ -208,7 +205,6 @@ export default function HomePage() {
       default:
         return (
           <SailboatDiagram
-            key={`boat-${diagramHighlightId}`}
             onPartSelect={handleDiagramPartSelect}
             selectedPartId={diagramHighlightId}
             enableZoom={isDesktop}
