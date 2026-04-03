@@ -19,7 +19,7 @@ export default function ContactPage() {
 
     try {
       // Send via Formspree (free, no backend needed)
-      const res = await fetch('https://formspree.io/f/xgegpvwk', {
+      const res = await fetch('https://formspree.io/f/xqegyybl', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
