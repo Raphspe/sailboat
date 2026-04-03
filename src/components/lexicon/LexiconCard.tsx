@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion'
-import { Eye, Heart } from 'lucide-react'
+import { Eye } from 'lucide-react'
 import { useNavigate } from 'react-router'
 import type { LexiconEntry } from '../../data/types'
-import { useProgress } from '../../hooks/useProgress'
 
 interface LexiconCardProps {
   entry: LexiconEntry
@@ -12,7 +11,6 @@ interface LexiconCardProps {
 
 export default function LexiconCard({ entry, index, onClick }: LexiconCardProps) {
   const navigate = useNavigate()
-  const { isFavorite, toggleFavorite } = useProgress()
 
   return (
     <motion.div
@@ -25,16 +23,6 @@ export default function LexiconCard({ entry, index, onClick }: LexiconCardProps)
       whileHover={{ y: -3, scale: 1.01 }}
       whileTap={{ scale: 0.98 }}
     >
-      {/* Favorite heart — top-right, visible on hover */}
-      <button
-        onClick={(e) => { e.stopPropagation(); toggleFavorite(entry.id) }}
-        className={`absolute top-3 right-3 w-7 h-7 rounded-full bg-white/[0.03] border border-white/[0.06] flex items-center justify-center transition-all hover:border-rose-500/20 hover:bg-rose-500/10 z-10 ${
-          isFavorite(entry.id) ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
-        }`}
-        title={isFavorite(entry.id) ? 'Retirer des favoris' : 'Ajouter aux favoris'}
-      >
-        <Heart size={12} className={isFavorite(entry.id) ? 'text-rose-400 fill-rose-400' : 'text-foam-300/30'} />
-      </button>
       <div>
         <div className="flex items-start justify-between gap-2 mb-2.5">
           <h3 className="text-base font-medium text-foam-100 group-hover:text-ocean-400 transition-colors duration-200">

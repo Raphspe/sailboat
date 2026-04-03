@@ -2,8 +2,6 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router'
 import { Ship, Sailboat } from 'lucide-react'
 import { useEffect, useRef } from 'react'
-import { useProgress } from '../hooks/useProgress'
-
 /* eslint-disable @typescript-eslint/no-explicit-any */
 declare global {
   interface Window { VANTA?: any; THREE?: any }
@@ -43,7 +41,6 @@ function VantaBackground() {
 
 
 export default function LandingPage() {
-  const { learnedCount, favoriteCount } = useProgress()
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -147,18 +144,6 @@ export default function LandingPage() {
         </motion.div>
 
         {/* Personal progress — only if user has any */}
-        {(learnedCount > 0 || favoriteCount > 0) && (
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.4, duration: 0.8 }}
-            className="hidden sm:block text-foam-300/30 text-xs mt-5"
-          >
-            {learnedCount > 0 && <>{learnedCount} terme{learnedCount > 1 ? 's' : ''} appris</>}
-            {learnedCount > 0 && favoriteCount > 0 && ' · '}
-            {favoriteCount > 0 && <>{favoriteCount} favori{favoriteCount > 1 ? 's' : ''}</>}
-          </motion.p>
-        )}
       </div>
     </motion.div>
   )

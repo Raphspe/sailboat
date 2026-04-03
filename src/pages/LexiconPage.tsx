@@ -4,8 +4,6 @@ import { Wind, Triangle, Ship, Cable, SlidersHorizontal, Compass, RotateCcw, Mes
 import { categories, getAllEntries } from '../data/categories'
 import { useState, useMemo } from 'react'
 import LexiconGrid from '../components/lexicon/LexiconGrid'
-import { useProgress } from '../hooks/useProgress'
-import ProgressBadge from '../components/ui/ProgressBadge'
 
 const ICON_MAP: Record<string, React.ElementType> = {
   Wind, Triangle, Ship, Cable, SlidersHorizontal, Compass, RotateCcw, MessageCircle,
@@ -29,7 +27,6 @@ function normalize(str: string) {
 export default function LexiconPage() {
   const [searchQuery, setSearchQuery] = useState('')
   const allEntries = useMemo(() => getAllEntries(), [])
-  const { learnedByCategory } = useProgress()
 
   const filteredEntries = useMemo(() => {
     if (!searchQuery.trim()) return null
@@ -109,24 +106,11 @@ export default function LexiconPage() {
                 </p>
                 <div className="flex items-center gap-1.5 mt-auto">
                   <span className="text-[10px] text-foam-300/20">{cat.entries.length} termes</span>
-                  <ProgressBadge learned={learnedByCategory(cat.id)} total={cat.entries.length} />
                   <ChevronRight size={10} className="text-foam-300/15 group-hover:text-ocean-400/50 transition-colors" />
                 </div>
               </Link>
             )
           })}
-        </div>
-      )}
-
-      {/* Ad banner — same width as cards grid */}
-      {!filteredEntries && (
-        <div className="mt-6" id="ad-banner">
-          <div
-            className="w-full h-[90px] rounded-2xl flex items-center justify-center border border-dashed border-white/[0.06] text-foam-300/15 text-xs"
-            style={{ background: 'rgba(14,165,233,0.02)' }}
-          >
-            Espace publicitaire
-          </div>
         </div>
       )}
     </motion.div>

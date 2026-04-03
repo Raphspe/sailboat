@@ -1,7 +1,7 @@
 import { useState, useMemo, useRef, useEffect } from 'react'
 import { useSearchParams } from 'react-router'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Wind, Triangle, Ship, Cable, SlidersHorizontal, Compass, RotateCcw, MessageCircle, ChevronRight, ChevronLeft, X, ArrowLeft, Play, Eye, List, Search, Heart, CheckCircle } from 'lucide-react'
+import { Wind, Triangle, Ship, Cable, SlidersHorizontal, Compass, RotateCcw, MessageCircle, ChevronRight, ChevronLeft, X, ArrowLeft, Play, Eye, List, Search } from 'lucide-react'
 import ShareButton from '../components/ui/ShareButton'
 import SailboatDiagram from '../components/diagrams/SailboatDiagram'
 import { useMediaQuery } from '../hooks/useMediaQuery'
@@ -13,7 +13,6 @@ import ManeuverDiagram from '../components/diagrams/ManeuverDiagram'
 import ExpressionsDiagram from '../components/diagrams/ExpressionsDiagram'
 import { categories, getAllEntries } from '../data/categories'
 import type { LexiconEntry } from '../data/types'
-import { useProgress } from '../hooks/useProgress'
 
 const ICON_MAP: Record<string, React.ElementType> = {
   Wind, Triangle, Ship, Cable, SlidersHorizontal, Compass, RotateCcw, MessageCircle,
@@ -45,7 +44,6 @@ interface SelectedPart {
 
 export default function HomePage() {
   const isDesktop = useMediaQuery('(min-width: 1024px)')
-  const { isFavorite, toggleFavorite, isLearned, toggleLearned } = useProgress()
   const [searchParams, setSearchParams] = useSearchParams()
   const [panelView, setPanelView] = useState<PanelView>('categories')
   const [activeCategoryId, setActiveCategoryId] = useState<string | null>(null)
@@ -504,20 +502,6 @@ export default function HomePage() {
                       {selectedEntry.term}
                     </h3>
                     <ShareButton entryId={selectedEntry.id} className="shrink-0" />
-                    <button
-                      onClick={(e) => { e.stopPropagation(); toggleFavorite(selectedEntry.id) }}
-                      className="w-7 h-7 rounded-full bg-white/[0.03] border border-white/[0.06] flex items-center justify-center transition-all hover:border-rose-500/20 hover:bg-rose-500/10 shrink-0"
-                      title={isFavorite(selectedEntry.id) ? 'Retirer des favoris' : 'Ajouter aux favoris'}
-                    >
-                      <Heart size={13} className={isFavorite(selectedEntry.id) ? 'text-rose-400 fill-rose-400' : 'text-foam-300/30'} />
-                    </button>
-                    <button
-                      onClick={(e) => { e.stopPropagation(); toggleLearned(selectedEntry.id) }}
-                      className="w-7 h-7 rounded-full bg-white/[0.03] border border-white/[0.06] flex items-center justify-center transition-all hover:border-seagreen-500/20 hover:bg-seagreen-500/10 shrink-0"
-                      title={isLearned(selectedEntry.id) ? 'Marquer comme non appris' : 'Marquer comme appris'}
-                    >
-                      <CheckCircle size={13} className={isLearned(selectedEntry.id) ? 'text-seagreen-400 fill-seagreen-400' : 'text-foam-300/30'} />
-                    </button>
                   </div>
                   {selectedEntry.aliases && selectedEntry.aliases.length > 0 && (
                     <p className="text-foam-300/30 text-xs mt-1">
