@@ -566,7 +566,7 @@ export default function HomePage() {
 
       {/* DEBUG — temporary */}
       <div className="fixed top-14 left-2 right-2 z-50 text-[9px] text-amber-400 bg-black/90 px-2 py-1.5 rounded lg:hidden leading-relaxed">
-        hl:{diagramHighlightId || '-'} | e:{selectedEntry?.term || '-'} | idx:{currentEntryIndex}/{playEntries.length} | cat:{activeCategoryId || '-'} | v:{panelView}
+        hl:{diagramHighlightId || '-'} | hover:{hoveredPartId || '-'} | partId:{selectedEntry?.diagramPartId || '-'} | spi:{selectedPartFromDiagram?.id || '-'} | e:{selectedEntry?.term || '-'}
       </div>
 
       {/* === MOBILE TAB BAR === */}
