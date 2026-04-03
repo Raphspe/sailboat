@@ -31,7 +31,7 @@ export default function SailboatPart({
       onMouseEnter={() => onHover(partId)}
       onMouseLeave={() => onHover(null)}
       onClick={(e) => { e.stopPropagation(); onClick(partId) }}
-      style={{ opacity }}
+      style={{ opacity, pointerEvents: opacity < 0.1 ? 'none' : undefined }}
       whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.97 }}
       role="button"
