@@ -127,9 +127,9 @@ export default function LandingPage() {
           className="hidden sm:flex items-center gap-10 text-center"
         >
           {[
-            { value: '110', label: 'composants' },
+            { value: '172+', label: 'termes' },
+            { value: '8', label: 'catégories' },
             { value: '6', label: 'schémas' },
-            { value: '160+', label: 'termes' },
           ].map((stat, i) => (
             <motion.div
               key={i}
