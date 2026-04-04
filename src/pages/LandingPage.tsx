@@ -127,7 +127,7 @@ export default function LandingPage() {
           className="hidden sm:flex items-center gap-10 text-center"
         >
           {[
-            { value: '172+', label: 'termes' },
+            { value: '170+', label: 'termes' },
             { value: '8', label: 'catégories' },
             { value: '6', label: 'schémas' },
           ].map((stat, i) => (
