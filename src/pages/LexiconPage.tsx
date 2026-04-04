@@ -120,7 +120,7 @@ export default function LexiconPage() {
           <p className="text-foam-300/20 text-[10px] uppercase tracking-widest text-center mb-3">Pour aller plus loin</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
-              href="https://www.amazon.fr/dp/2021059189"
+              href="https://amzn.to/41aiHpR"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 px-4 py-3 rounded-2xl transition-all duration-300 hover:-translate-y-0.5"
@@ -136,7 +136,7 @@ export default function LexiconPage() {
               </div>
             </a>
             <a
-              href="https://www.amazon.fr/dp/2857259476"
+              href="https://amzn.to/47JcCo1"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 px-4 py-3 rounded-2xl transition-all duration-300 hover:-translate-y-0.5"
