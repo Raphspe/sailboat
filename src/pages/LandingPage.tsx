@@ -129,7 +129,7 @@ export default function LandingPage() {
           {[
             { value: '170+', label: 'termes' },
             { value: '8', label: 'catégories' },
-            { value: '6', label: 'schémas' },
+            { value: '100%', label: 'gratuit' },
           ].map((stat, i) => (
             <motion.div
               key={i}
