@@ -120,7 +120,7 @@ export default function LexiconPage() {
           <p className="text-foam-300/20 text-[10px] uppercase tracking-widest text-center mb-3">Pour aller plus loin</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
-              href="https://www.amazon.fr/dp/2020130912?tag=YOUR_AFFILIATE_TAG"
+              href="https://www.amazon.fr/dp/2021059189"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 px-4 py-3 rounded-2xl transition-all duration-300 hover:-translate-y-0.5"
@@ -136,7 +136,7 @@ export default function LexiconPage() {
               </div>
             </a>
             <a
-              href="https://www.amazon.fr/dp/2742448187?tag=YOUR_AFFILIATE_TAG"
+              href="https://www.amazon.fr/dp/2857259476"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 px-4 py-3 rounded-2xl transition-all duration-300 hover:-translate-y-0.5"
@@ -147,8 +147,8 @@ export default function LexiconPage() {
             >
               <span className="text-lg">📙</span>
               <div>
-                <p className="text-foam-100/70 text-xs font-medium">Voile et navigation</p>
-                <p className="text-foam-300/25 text-[10px]">Le guide pratique Vagnon</p>
+                <p className="text-foam-100/70 text-xs font-medium">Le Manuel Vagnon</p>
+                <p className="text-foam-300/25 text-[10px]">du plaisancier</p>
               </div>
             </a>
           </div>
