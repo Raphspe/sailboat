@@ -131,8 +131,8 @@ export default function LexiconPage() {
             >
               <span className="text-lg">📘</span>
               <div>
-                <p className="text-foam-100/70 text-xs font-medium">Le cours des Glénans</p>
-                <p className="text-foam-300/25 text-[10px]">La bible de la voile</p>
+                <p className="text-foam-100/70 text-xs font-medium">Guide visuel de la voile</p>
+                <p className="text-foam-300/25 text-[10px]">200 illustrations · Accastillage</p>
               </div>
             </a>
             <a
@@ -147,8 +147,8 @@ export default function LexiconPage() {
             >
               <span className="text-lg">📙</span>
               <div>
-                <p className="text-foam-100/70 text-xs font-medium">Le Manuel Vagnon</p>
-                <p className="text-foam-300/25 text-[10px]">du plaisancier</p>
+                <p className="text-foam-100/70 text-xs font-medium">Toutes les manœuvres</p>
+                <p className="text-foam-300/25 text-[10px]">de votre voilier · en 300 illustrations</p>
               </div>
             </a>
           </div>
